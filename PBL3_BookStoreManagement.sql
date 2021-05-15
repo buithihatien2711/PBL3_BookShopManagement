@@ -9,7 +9,7 @@ Password varchar(20),
 ID_Position int references Position(ID_Position))
 
 create table Staff(
-ID_Staff int,
+ID_Staff int identity(1, 1) primary key,
 Name_Staff varchar(30),
 Gender bit,
 DateOfBirth datetime,
