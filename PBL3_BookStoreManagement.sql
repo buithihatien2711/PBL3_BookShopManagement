@@ -3,7 +3,7 @@ ID_Position int primary key,
 NamePosition varchar(20))
 
 create table Account(
-ID_User int primary key,
+ID_User int identity(1, 1) primary key,
 UserName varchar(30),
 Password varchar(20),
 ID_Position int references Position(ID_Position))
