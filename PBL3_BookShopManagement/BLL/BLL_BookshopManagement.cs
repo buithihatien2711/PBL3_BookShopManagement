@@ -42,26 +42,27 @@ namespace PBL3_BookShopManagement.BLL
             }
             return list;
         }
-        public List<StaffView> getAllStaffView_BLL()
-        {
-            List<StaffView> list = new List<StaffView>();
-            foreach (DataRow i in DAL_BookshopManagement.Instance.getAllStaffView_DAL().Rows)
-            {
-                list.Add(new StaffView
-                {
-                    ID_Staff = Convert.ToInt32(i["ID_Staff"]),
-                    Name_Staff = i["Name_Staff"].ToString(),
-                    Gender = Convert.ToBoolean(i["Gender"]),
-                    DateOfBirth = Convert.ToDateTime(i["DateOfBirth"]),
-                    Address = i["Address"].ToString(),
-                    ID_User = Convert.ToInt32(i["ID_User"]),
-                    UserName = i["UserName"].ToString(),
-                    Password = i["Password"].ToString(),
-                    NamePosition = i["NamePosition"].ToString()
-                });
-            }
-            return list;
-        }
+
+        //public List<StaffView> getAllStaffView_BLL()
+        //{
+        //    List<StaffView> list = new List<StaffView>();
+        //    foreach (DataRow i in DAL_BookshopManagement.Instance.getAllStaffView_DAL().Rows)
+        //    {
+        //        list.Add(new StaffView
+        //        {
+        //            ID_Staff = Convert.ToInt32(i["ID_Staff"]),
+        //            Name_Staff = i["Name_Staff"].ToString(),
+        //            Gender = Convert.ToBoolean(i["Gender"]),
+        //            DateOfBirth = Convert.ToDateTime(i["DateOfBirth"]),
+        //            Address = i["Address"].ToString(),
+        //            ID_User = Convert.ToInt32(i["ID_User"]),
+        //            UserName = i["UserName"].ToString(),
+        //            Password = i["Password"].ToString(),
+        //            NamePosition = i["NamePosition"].ToString()
+        //        });
+        //    }
+        //    return list;
+        //}
         public List<CBBItem> getListCBBPosition()
         {
             List<CBBItem> list = new List<CBBItem>();
@@ -71,6 +72,7 @@ namespace PBL3_BookShopManagement.BLL
             }
             return list;
         }
+
         //public List<Position> getAllPosition_BLL()
         //{
         //    List<Position> list = new List<Position>();
@@ -88,15 +90,27 @@ namespace PBL3_BookShopManagement.BLL
         {
             DAL_BookshopManagement.Instance.UpdateStaff_DAL(staff, account);
         }
+        public StaffView GetStaffView(DataRow i)
+        {
+            return new StaffView
+            {
+                ID_Staff = Convert.ToInt32(i["ID_Staff"]),
+                Name_Staff = i["Name_Staff"].ToString(),
+                Gender = Convert.ToBoolean(i["Gender"]),
+                DateOfBirth = Convert.ToDateTime(i["DateOfBirth"]),
+                Address = i["Address"].ToString(),
+                ID_User = Convert.ToInt32(i["ID_User"]),
+                UserName = i["UserName"].ToString(),
+                Password = i["Password"].ToString(),
+                NamePosition = i["NamePosition"].ToString()
+            };
+        }
         public StaffView GetStaffViewbyID(int id)
         {
             StaffView staffView = new StaffView();
-            foreach(StaffView i in getAllStaffView_BLL())
+            foreach(StaffView i in GetListStaffView_BLL(null, 0))
             {
-                if(i.ID_Staff == id)
-                {
-                    staffView = i;
-                }
+                staffView = i;
             }
             return staffView;
         }
@@ -126,6 +140,101 @@ namespace PBL3_BookShopManagement.BLL
                 });
             }
             return list;
+        }
+        public Account GetAccountbyID(int id)
+        {
+            Account account = new Account();
+            foreach(Account i in GetAllAcount_BLL())
+            {
+                if(i.ID_User == id)
+                {
+                    account = i;
+                }
+            }
+            return account;
+        }
+        public bool Excute(int IDStaff)
+        {
+            bool check = false;
+            foreach(Staff i in getAllSatff_BLL())
+            {
+                if (i.ID_Staff == IDStaff) check = true;
+            }
+            return check;
+        }
+        public void DelStaff_BLL(List<string> listIDStaff) 
+        {
+            foreach(string i in listIDStaff)
+            {
+                DAL_BookshopManagement.Instance.DeleteStaff_DAL(i);
+            }
+        }
+        public List<StaffView> GetListStaffView_BLL(string name, int idPos)
+        {
+            List<StaffView> list = new List<StaffView>();
+            //DataTable dt = new DataTable();
+            if (idPos == 0)
+            {
+
+                foreach(DataRow i in DAL_BookshopManagement.Instance.GetListStaffViewbyName_DAL(name).Rows)
+                {
+                    list.Add(GetStaffView(i));
+                }
+            }
+            else
+            {
+                foreach (DataRow i in DAL_BookshopManagement.Instance.GetListStaffViewbyIDPos_DAL(idPos, name).Rows)
+                {
+                    list.Add(GetStaffView(i));
+                }
+            }
+            return list;
+
+            //if(dt != null)
+            //{
+            //    List<StaffView> list = new List<StaffView>();
+            //    foreach (DataRow i in dt.Rows)
+            //    {
+            //        list.Add(new StaffView
+            //        {
+            //            ID_Staff = Convert.ToInt32(i["ID_Staff"]),
+            //            Name_Staff = i["Name_Staff"].ToString(),
+            //            Gender = Convert.ToBoolean(i["Gender"]),
+            //            DateOfBirth = Convert.ToDateTime(i["DateOfBirth"]),
+            //            Address = i["Address"].ToString(),
+            //            ID_User = Convert.ToInt32(i["ID_User"]),
+            //            UserName = i["UserName"].ToString(),
+            //            Password = i["Password"].ToString(),
+            //            NamePosition = i["NamePosition"].ToString()
+            //        });
+            //    }
+            //    return list;
+            //}
+            //else
+            //{
+            //    return null;
+            //}
+        }
+        public List<StaffView> SortStaff(List<StaffView> list)
+        {
+            List<StaffView> listSort = new List<StaffView>();
+            if (cbbSort.SelectedIndex != -1)
+            {
+                string sortBy = cbbSort.SelectedItem.ToString();
+                switch (sortBy)
+                {
+                    case "ID Staff":
+                        dataGridView1.DataSource = BLL_BookshopManagement.Instance.GetListStaffView_BLL(null, ((CBBItem)(cbbShow.SelectedItem)).Value).OrderBy(o => o.ID_Staff).ToList();
+                        break;
+                    case "Name Staff":
+                        dataGridView1.DataSource = BLL_BookshopManagement.Instance.GetListStaffView_BLL(null, ((CBBItem)(cbbShow.SelectedItem)).Value).OrderBy(o => o.Name_Staff).ToList();
+                        break;
+                }
+            }
+            else
+            {
+                MessageBox.Show("select attribute to sort");
+            }
         }
     }
 }

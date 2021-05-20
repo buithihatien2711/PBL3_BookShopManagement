@@ -30,12 +30,12 @@ namespace PBL3_BookShopManagement.DAL
             return DBHelper.Instance.GetRecord("select * from Staff");
         }
 
-        public DataTable getAllStaffView_DAL()
-        {
-            string query = "select Staff.ID_Staff, Name_Staff, Gender, DateOfBirth, Address, Account.ID_User, UserName, Password, NamePosition " +
-                             "from Staff, Account, Position where Staff.ID_User = Account.ID_User and Account.ID_Position = Position.ID_Position";
-            return DBHelper.Instance.GetRecord(query);
-        }
+        //public DataTable getAllStaffView_DAL()
+        //{
+        //    string query = "select Staff.ID_Staff, Name_Staff, Gender, DateOfBirth, Address, Account.ID_User, UserName, Password, NamePosition " +
+        //                     "from Staff, Account, Position where Staff.ID_User = Account.ID_User and Account.ID_Position = Position.ID_Position";
+        //    return DBHelper.Instance.GetRecord(query);
+        //}
         public DataTable getAllPosition_DAL()
         {
             return DBHelper.Instance.GetRecord("select * from Position");
@@ -71,6 +71,63 @@ namespace PBL3_BookShopManagement.DAL
         {
             string query = "select * from Account";
             return DBHelper.Instance.GetRecord(query);
+        }
+        public void DeleteStaff_DAL(string IDStaff)
+        {
+            string query = "select ID_User from Staff where ID_Staff = " + IDStaff;
+            DataTable dt = DBHelper.Instance.GetRecord(query);
+            int IDUser = -1;
+            foreach(DataRow i in dt.Rows)
+            {
+                IDUser = Convert.ToInt32(i["ID_User"]);
+            }
+
+            string query_DelStaff  = "delete from Staff where ID_Staff = " + IDStaff;
+            DBHelper.Instance.ExcuteDB(query_DelStaff);
+
+            string query_DelAccount = "delete from Account where ID_User = " + IDUser;
+            DBHelper.Instance.ExcuteDB(query_DelAccount);
+        }
+        public DataTable GetListStaffViewbyName_DAL(string name)
+        {
+            DataTable dt = new DataTable();
+            if (name == null)
+            {
+                string query = "select Staff.ID_Staff, Name_Staff, Gender, DateOfBirth, Address, Account.ID_User, UserName, Password, NamePosition " +
+                                 "from Staff, Account, Position where Staff.ID_User = Account.ID_User and Account.ID_Position = Position.ID_Position";
+                return DBHelper.Instance.GetRecord(query);
+            }
+            else
+            {
+                string query = "select Staff.ID_Staff, Name_Staff, Gender, DateOfBirth, Address, Account.ID_User, UserName, Password, NamePosition " +
+                             "from Staff, Account, Position where Staff.ID_User = Account.ID_User and Account.ID_Position = Position.ID_Position and Name_Staff = '" + name + "'";
+                return DBHelper.Instance.GetRecord(query);
+            }
+        }
+        public DataTable GetListStaffViewbyIDPos_DAL(int idPos, string name)
+        {
+            if(idPos == 0)
+            {
+                return GetListStaffViewbyName_DAL(name);
+            }
+            else
+            {
+                if(name == null)
+                {
+                    string query = "select Staff.ID_Staff, Name_Staff, Gender, DateOfBirth, Address, Account.ID_User, UserName, Password, NamePosition " +
+                     "from Staff, Account, Position where Staff.ID_User = Account.ID_User and Account.ID_Position = Position.ID_Position " +
+                     " and Account.ID_Position = " + idPos.ToString();
+                    return DBHelper.Instance.GetRecord(query);
+                }
+                else
+                {
+                    string query = "select Staff.ID_Staff, Name_Staff, Gender, DateOfBirth, Address, Account.ID_User, UserName, Password, NamePosition " +
+                     "from Staff, Account, Position where Staff.ID_User = Account.ID_User and Account.ID_Position = Position.ID_Position " +
+                     " Name_Staff = '" + name +  "' and Account.ID_Position = " + idPos.ToString();
+                    return DBHelper.Instance.GetRecord(query);
+                }
+                
+            }
         }
     }
 }
