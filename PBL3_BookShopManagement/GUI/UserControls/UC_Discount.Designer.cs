@@ -153,7 +153,7 @@
             this.btnDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnDel.Location = new System.Drawing.Point(269, 358);
+            this.btnDel.Location = new System.Drawing.Point(262, 358);
             this.btnDel.Name = "btnDel";
             this.btnDel.Size = new System.Drawing.Size(105, 47);
             this.btnDel.TabIndex = 14;
@@ -179,7 +179,7 @@
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEdit.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnEdit.Location = new System.Drawing.Point(6, 358);
+            this.btnEdit.Location = new System.Drawing.Point(12, 358);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(105, 47);
             this.btnEdit.TabIndex = 16;
@@ -228,7 +228,7 @@
             this.btnSort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSort.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSort.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnSort.Location = new System.Drawing.Point(546, 358);
+            this.btnSort.Location = new System.Drawing.Point(503, 358);
             this.btnSort.Name = "btnSort";
             this.btnSort.Size = new System.Drawing.Size(105, 47);
             this.btnSort.TabIndex = 25;
@@ -238,7 +238,7 @@
             // cbbSort
             // 
             this.cbbSort.FormattingEnabled = true;
-            this.cbbSort.Location = new System.Drawing.Point(657, 367);
+            this.cbbSort.Location = new System.Drawing.Point(614, 367);
             this.cbbSort.Name = "cbbSort";
             this.cbbSort.Size = new System.Drawing.Size(142, 31);
             this.cbbSort.TabIndex = 26;

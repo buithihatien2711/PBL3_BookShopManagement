@@ -215,25 +215,43 @@ namespace PBL3_BookShopManagement.BLL
             //    return null;
             //}
         }
-        public List<StaffView> SortStaff(List<StaffView> list)
+        //public List<StaffView> SortStaff(List<StaffView> list)
+        //{
+        //    List<StaffView> listSort = new List<StaffView>();
+
+        //}
+        public SachView GetSachView(DataRow i)
         {
-            List<StaffView> listSort = new List<StaffView>();
-            if (cbbSort.SelectedIndex != -1)
+            return new SachView
             {
-                string sortBy = cbbSort.SelectedItem.ToString();
-                switch (sortBy)
-                {
-                    case "ID Staff":
-                        dataGridView1.DataSource = BLL_BookshopManagement.Instance.GetListStaffView_BLL(null, ((CBBItem)(cbbShow.SelectedItem)).Value).OrderBy(o => o.ID_Staff).ToList();
-                        break;
-                    case "Name Staff":
-                        dataGridView1.DataSource = BLL_BookshopManagement.Instance.GetListStaffView_BLL(null, ((CBBItem)(cbbShow.SelectedItem)).Value).OrderBy(o => o.Name_Staff).ToList();
-                        break;
-                }
+                MaSach = Convert.ToInt32(i["MaSach"]),
+                TenSach = i["TenSach"].ToString(),
+                GiaMua = Convert.ToInt32(i["GiaMua"]),
+                TenLoaiSach = i["TenLoaiSach"].ToString(),
+                TenTacGia = i["TenTacGia"].ToString(),
+                TenLinhVuc = i["TenLinhVuc"].ToString(),
+                LanTaiBan = i["LanTaiBan"].ToString(),
+                NamXuatBan = i["NamXuatBan"].ToString(),
+                GiaBia = Convert.ToInt32(i["GiaBia"]),  
+            };
+        }
+        List<SachView> getListSachView(string name, string TheLoai, string LoaiSach)
+        {
+            if((TheLoai == null) && (LoaiSach == null))
+            {
+                //code
+                DAL_BookshopManagement.Instance.getAllSachViewbyName_DAL(name);
             }
             else
             {
-                MessageBox.Show("select attribute to sort");
+                if (LoaiSach == null)
+                {
+                    DAL_BookshopManagement.Instance.getAllSachViewbyTheLoai_DAL(TheLoai, name);
+                }
+                else
+                {
+                    DAL_BookshopManagement.Instance.getAllSachViewbyLoaiSach_DAL(LoaiSach, TheLoai, name);
+                }
             }
         }
     }

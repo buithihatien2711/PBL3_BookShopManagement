@@ -112,11 +112,11 @@ namespace PBL3_BookShopManagement.GUI.UserControls
             txtPass.Text = "";
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            ResetGUI();
-            txtName.Focus();
-        }
+        //private void btnAdd_Click(object sender, EventArgs e)
+        //{
+        //    ResetGUI();
+        //    txtName.Focus();
+        //}
 
         private void btnShow_Click(object sender, EventArgs e)
         {
@@ -212,7 +212,25 @@ namespace PBL3_BookShopManagement.GUI.UserControls
 
         private void btnSort_Click(object sender, EventArgs e)
         {
-
+            if (cbbSort.SelectedIndex != -1)
+            {
+                string sortBy = cbbSort.SelectedItem.ToString();
+                switch (sortBy)
+                {
+                    case "ID Staff":
+                        dataGridView1.DataSource = BLL_BookshopManagement.Instance.
+                            GetListStaffView_BLL(null, ((CBBItem)(cbbShow.SelectedItem)).Value).OrderBy(o => o.ID_Staff).ToList();
+                        break;
+                    case "Name Staff":
+                        dataGridView1.DataSource = BLL_BookshopManagement.Instance.
+                            GetListStaffView_BLL(null, ((CBBItem)(cbbShow.SelectedItem)).Value).OrderBy(o => o.Name_Staff).ToList();
+                        break;
+                }
+            }
+            else
+            {
+                MessageBox.Show("select attribute to sort");
+            }
         }
     }
 }

@@ -42,7 +42,9 @@ namespace PBL3_BookShopManagement.DAL
         }
         public void AddStaff_DAL(Staff staff, Account account)
         {
-            string query_insertAccount = "insert into Account values ('" + account.UserName + "', '" + account.Password + "', " + account.ID_Position.ToString() + ")";
+            string query_insertAccount = string.Format("insert into Account values ( N'{0}',  N'{1}', {2})", 
+                account.UserName, account.Password, account.ID_Position);
+                //"insert into Account values ('" + account.UserName + "', '" + account.Password + "', " + account.ID_Position.ToString() + ")";
             DBHelper.Instance.ExcuteDB(query_insertAccount);
 
             string query = "SELECT TOP 1 ID_User FROM Account ORDER BY ID_User DESC";
@@ -55,8 +57,8 @@ namespace PBL3_BookShopManagement.DAL
                 id_user = Convert.ToInt32(i[0]);
             }
 
-            string query_insertStaff = "insert into Staff values ('" + staff.Name_Staff + "' , '"
-                            + staff.Gender.ToString() + "', '" + staff.DateOfBirth.ToString() + "', '" + staff.Address + "', " + id_user.ToString() + ")";
+            string query_insertStaff = "insert into Staff values ('" + staff.Name_Staff + "' , '" +  staff.Gender.ToString() 
+                + "', '" + staff.DateOfBirth.ToString() + "', '" + staff.Address + "', " + id_user.ToString() + ")";
             DBHelper.Instance.ExcuteDB(query_insertStaff);
         }
         public void UpdateStaff_DAL(Staff staff, Account account)
@@ -127,6 +129,84 @@ namespace PBL3_BookShopManagement.DAL
                     return DBHelper.Instance.GetRecord(query);
                 }
                 
+            }
+        }
+        public DataTable getAllSach_DAL()
+        {
+            return DBHelper.Instance.GetRecord("select * from Sach");
+        }
+        public DataTable getAllThongTinXB()
+        {
+            return DBHelper.Instance.GetRecord("select * from ThongTinXuatBan");
+        }
+        public DataTable getAllSachViewbyName_DAL(string name)
+        {
+            if(name == null)
+            {
+                return DBHelper.Instance.GetRecord("select Sach.MaSach, TenSach, GiaMua, TenLoaiSach, TenTacGia, TenLinhVuc, LanTaiBan, NamXuatBan, NhaXuatBan, GiaBia " +
+                 "from Sach, ThongTinXuatBan where Sach.MaSach = Sach.ThongTinXuatBan ");
+            }
+            else
+            {
+                string query = "select Sach.MaSach, TenSach, GiaMua, TenLoaiSach, TenTacGia, TenLinhVuc, LanTaiBan, NamXuatBan, NhaXuatBan, GiaBia " +
+                 "from Sach, ThongTinXuatBan where Sach.MaSach = Sach.ThongTinXuatBan and Name = '" + name + "'";
+                return DBHelper.Instance.GetRecord(query);
+            }
+        }
+        public DataTable getAllSachViewbyTheLoai_DAL(string TheLoai, string name)
+        {
+            if(TheLoai == "All")
+            {
+                return getAllSachViewbyName_DAL(name);
+            }
+            else
+            {
+                if(name == null)
+                {
+                    string query = "select Sach.MaSach, TenSach, GiaMua, TenLoaiSach, TenTacGia, TenLinhVuc, LanTaiBan, NamXuatBan, NhaXuatBan, GiaBia " +
+                         "from Sach, ThongTinXuatBan where Sach.MaSach = Sach.ThongTinXuatBan and TheLoai = '" + TheLoai + "'";
+                    return DBHelper.Instance.GetRecord(query);
+                }
+                else
+                {
+                    string query = "select Sach.MaSach, TenSach, GiaMua, TenLoaiSach, TenTacGia, TenLinhVuc, LanTaiBan, NamXuatBan, NhaXuatBan, GiaBia " +
+                        "from Sach, ThongTinXuatBan where Sach.MaSach = Sach.ThongTinXuatBan and Name = '" + name + "' and TheLoai = '" + TheLoai + "'";
+                    return DBHelper.Instance.GetRecord(query);
+                }
+            }
+        }
+        public DataTable getAllSachViewbyLoaiSach_DAL(string LoaiSach, string TheLoai, string name)
+        {
+            if(name == null)
+            {
+                if(TheLoai == null)
+                {
+                    string query = "select Sach.MaSach, TenSach, GiaMua, TenLoaiSach, TenTacGia, TenLinhVuc, LanTaiBan, NamXuatBan, NhaXuatBan, GiaBia " +
+                         "from Sach, ThongTinXuatBan where Sach.MaSach = Sach.ThongTinXuatBan and LoaiSach = '" + LoaiSach + "'";
+                    return DBHelper.Instance.GetRecord(query);
+                }
+                else
+                {
+                    string query = "select Sach.MaSach, TenSach, GiaMua, TenLoaiSach, TenTacGia, TenLinhVuc, LanTaiBan, NamXuatBan, NhaXuatBan, GiaBia " +
+                         "from Sach, ThongTinXuatBan where Sach.MaSach = Sach.ThongTinXuatBan and LoaiSach = '" + LoaiSach + "' and TheLoai = '" + TheLoai + "'";
+                    return DBHelper.Instance.GetRecord(query);
+                }
+            }
+            else
+            {
+                if (TheLoai == null)
+                {
+                    string query = "select Sach.MaSach, TenSach, GiaMua, TenLoaiSach, TenTacGia, TenLinhVuc, LanTaiBan, NamXuatBan, NhaXuatBan, GiaBia " +
+                         "from Sach, ThongTinXuatBan where Sach.MaSach = Sach.ThongTinXuatBan and LoaiSach = '" + LoaiSach + "' and TenSach = '" + name + "'";
+                    return DBHelper.Instance.GetRecord(query);
+                }
+                else
+                {
+                    string query = "select Sach.MaSach, TenSach, GiaMua, TenLoaiSach, TenTacGia, TenLinhVuc, LanTaiBan, NamXuatBan, NhaXuatBan, GiaBia " 
+                         + "from Sach, ThongTinXuatBan where Sach.MaSach = Sach.ThongTinXuatBan and LoaiSach = '" + LoaiSach 
+                         + "' and TenSach = '" + name + "'" + "' and TheLoai = '" + TheLoai + "'";
+                    return DBHelper.Instance.GetRecord(query);
+                }
             }
         }
     }
