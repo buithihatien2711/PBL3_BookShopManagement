@@ -16,6 +16,7 @@ namespace PBL3_BookShopManagement.DTO
         public string TenLinhVuc { get; set; }
         public string LanTaiBan { get; set; }
         public string NamXuatBan { get; set; }
+        public string NhaXuatBan { get; set; }
         public int GiaBia { get; set; }
     }
 }

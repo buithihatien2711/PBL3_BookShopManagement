@@ -56,7 +56,7 @@ namespace PBL3_BookShopManagement.GUI.UserControls
             {
                 cbb.Items.Add(new CBBItem { Text = "All", Value = 0 });
             }
-            cbb.Items.AddRange(BLL_BookshopManagement.Instance.getListCBBPosition().ToArray());
+            cbb.Items.AddRange(BLL_Staff.Instance.getListCBBPosition().ToArray());
         }
 
         private Staff GetStaff()
@@ -120,8 +120,9 @@ namespace PBL3_BookShopManagement.GUI.UserControls
 
         private void btnShow_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = BLL_BookshopManagement.Instance.GetListStaffView_BLL(null, ((CBBItem)(cbbShow.SelectedItem)).Value);
-            //dataGridView1.DataSource = BLL_BookshopManagement.Instance.getAllPosition_BLL();
+            //dataGridView1.DataSource = BLL_BookshopManagement.Instance.GetListStaffView_BLL(null, ((CBBItem)(cbbShow.SelectedItem)).Value);
+            //dataGridView1.DataSource = BLL_BookshopManagement.Instance.GetAllAcount_BLL();
+            dataGridView1.DataSource = DAL_Staff.Instance.GetListStaffViewbyIDPos_DAL(((CBBItem)(cbbShow.SelectedItem)).Value, null);
         }
 
         private void SetDetail(Staff staff, Account account)
@@ -151,11 +152,14 @@ namespace PBL3_BookShopManagement.GUI.UserControls
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            int ID_User = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["ID_User"].Value);
-            int ID_Staff = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["ID_Staff"].Value);
-            Account account = BLL_BookshopManagement.Instance.GetAccountbyID(ID_User);
-            Staff staff = BLL_BookshopManagement.Instance.GetStaffbyID(ID_Staff);
-            SetDetail(staff, account);
+            if(dataGridView1.SelectedRows.Count != 0)
+            {
+                int ID_User = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["ID_User"].Value);
+                int ID_Staff = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["ID_Staff"].Value);
+                Account account = BLL_Staff.Instance.GetAccountbyID(ID_User);
+                Staff staff = BLL_Staff.Instance.GetStaffbyID(ID_Staff);
+                SetDetail(staff, account);
+            }
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -172,20 +176,13 @@ namespace PBL3_BookShopManagement.GUI.UserControls
             }
             else
             {
-                int idStaff = 0;
-                if(txtIDStaff.Text != "")
-                {
-                    idStaff = Convert.ToInt32(txtIDStaff.Text.ToString());
-                }
-                if (BLL_BookshopManagement.Instance.Excute(idStaff))
-                {
-                    BLL_BookshopManagement.Instance.UpdateStaff_BLL(GetStaff(), GetAccount());
-                }
-                else
-                {
-                    BLL_BookshopManagement.Instance.AddStaff_BLL(GetStaff(), GetAccount());
-                }
-                dataGridView1.DataSource = BLL_BookshopManagement.Instance.GetListStaffView_BLL(null, ((CBBItem)(cbbShow.SelectedItem)).Value);
+                //int idStaff = 0;
+                //if(txtIDStaff.Text != "")
+                //{
+                //    idStaff = Convert.ToInt32(txtIDStaff.Text.ToString());
+                //}
+                BLL_Staff.Instance.ExcuteStaff(GetStaff(), GetAccount());
+                dataGridView1.DataSource = BLL_Staff.Instance.GetListStaffView_BLL(null, ((CBBItem)(cbbShow.SelectedItem)).Value);
                 ResetGUI();
             }
             
@@ -200,14 +197,14 @@ namespace PBL3_BookShopManagement.GUI.UserControls
                 {
                     listDel.Add(i.Cells["ID_Staff"].Value.ToString());
                 }
-                BLL_BookshopManagement.Instance.DelStaff_BLL(listDel);
-                dataGridView1.DataSource = BLL_BookshopManagement.Instance.GetListStaffView_BLL(null, ((CBBItem)(cbbShow.SelectedItem)).Value);
+                BLL_Staff.Instance.DelStaff_BLL(listDel);
+                dataGridView1.DataSource = BLL_Staff.Instance.GetListStaffView_BLL(null, ((CBBItem)(cbbShow.SelectedItem)).Value);
             }
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = BLL_BookshopManagement.Instance.GetListStaffView_BLL(txtSearchName.Text, ((CBBItem)(cbbShow.SelectedItem)).Value);
+            dataGridView1.DataSource = BLL_Staff.Instance.GetListStaffView_BLL(txtSearchName.Text, ((CBBItem)(cbbShow.SelectedItem)).Value);
         }
 
         private void btnSort_Click(object sender, EventArgs e)
@@ -218,11 +215,11 @@ namespace PBL3_BookShopManagement.GUI.UserControls
                 switch (sortBy)
                 {
                     case "ID Staff":
-                        dataGridView1.DataSource = BLL_BookshopManagement.Instance.
+                        dataGridView1.DataSource = BLL_Staff.Instance.
                             GetListStaffView_BLL(null, ((CBBItem)(cbbShow.SelectedItem)).Value).OrderBy(o => o.ID_Staff).ToList();
                         break;
                     case "Name Staff":
-                        dataGridView1.DataSource = BLL_BookshopManagement.Instance.
+                        dataGridView1.DataSource = BLL_Staff.Instance.
                             GetListStaffView_BLL(null, ((CBBItem)(cbbShow.SelectedItem)).Value).OrderBy(o => o.Name_Staff).ToList();
                         break;
                 }

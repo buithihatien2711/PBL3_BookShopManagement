@@ -186,7 +186,7 @@
             this.btnBookManagement.Name = "btnBookManagement";
             this.btnBookManagement.Size = new System.Drawing.Size(203, 60);
             this.btnBookManagement.TabIndex = 2;
-            this.btnBookManagement.Text = "Manage Book";
+            this.btnBookManagement.Text = "     Manage Book";
             this.btnBookManagement.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBookManagement.UseVisualStyleBackColor = true;
             this.btnBookManagement.Click += new System.EventHandler(this.btnSaleBooks_Click);

@@ -1,6 +1,6 @@
 ﻿namespace PBL3_BookShopManagement.GUI.Forms
 {
-    partial class Form_AddNewBook
+    partial class Form_BookDetail
     {
         /// <summary>
         /// Required designer variable.
@@ -33,9 +33,9 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnSave = new System.Windows.Forms.Button();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.txtGiaBan = new System.Windows.Forms.TextBox();
             this.txtTenSach = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtGiaMua = new System.Windows.Forms.TextBox();
             this.txtBookID = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -48,13 +48,13 @@
             this.txtTacGia = new System.Windows.Forms.TextBox();
             this.cbbLoaiSach = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.cbbTheLoai = new System.Windows.Forms.ComboBox();
+            this.cbbLinhVuc = new System.Windows.Forms.ComboBox();
             this.btnClear = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.txtLanTaiBan = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.txtNamTaiBan = new System.Windows.Forms.TextBox();
+            this.txtNamXuatBan = new System.Windows.Forms.TextBox();
             this.txtNXB = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
@@ -108,13 +108,14 @@
             this.btnSave.TabIndex = 20;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // textBox7
+            // txtGiaBan
             // 
-            this.textBox7.Location = new System.Drawing.Point(145, 353);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(234, 32);
-            this.textBox7.TabIndex = 13;
+            this.txtGiaBan.Location = new System.Drawing.Point(145, 353);
+            this.txtGiaBan.Name = "txtGiaBan";
+            this.txtGiaBan.Size = new System.Drawing.Size(234, 32);
+            this.txtGiaBan.TabIndex = 13;
             // 
             // txtTenSach
             // 
@@ -123,12 +124,12 @@
             this.txtTenSach.Size = new System.Drawing.Size(241, 32);
             this.txtTenSach.TabIndex = 14;
             // 
-            // textBox6
+            // txtGiaMua
             // 
-            this.textBox6.Location = new System.Drawing.Point(533, 356);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(234, 32);
-            this.textBox6.TabIndex = 17;
+            this.txtGiaMua.Location = new System.Drawing.Point(533, 356);
+            this.txtGiaMua.Name = "txtGiaMua";
+            this.txtGiaMua.Size = new System.Drawing.Size(234, 32);
+            this.txtGiaMua.TabIndex = 17;
             // 
             // txtBookID
             // 
@@ -205,9 +206,9 @@
             this.label4.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(301, 31);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(157, 32);
+            this.label4.Size = new System.Drawing.Size(163, 32);
             this.label4.TabIndex = 11;
-            this.label4.Text = "Add Books";
+            this.label4.Text = "Book Detail";
             // 
             // label2
             // 
@@ -230,6 +231,15 @@
             // 
             this.cbbLoaiSach.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbLoaiSach.FormattingEnabled = true;
+            this.cbbLoaiSach.Items.AddRange(new object[] {
+            "Sach giao khoa",
+            "Sach tham khao",
+            "Tieu thuyet",
+            "Truyen tranh",
+            "Sach ky nang song",
+            "Sach ton giao",
+            "Truyen ngan",
+            "Ky nang lam viec"});
             this.cbbLoaiSach.Location = new System.Drawing.Point(533, 152);
             this.cbbLoaiSach.Name = "cbbLoaiSach";
             this.cbbLoaiSach.Size = new System.Drawing.Size(234, 31);
@@ -245,14 +255,21 @@
             this.label3.TabIndex = 9;
             this.label3.Text = "Category:";
             // 
-            // cbbTheLoai
+            // cbbLinhVuc
             // 
-            this.cbbTheLoai.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbTheLoai.FormattingEnabled = true;
-            this.cbbTheLoai.Location = new System.Drawing.Point(145, 149);
-            this.cbbTheLoai.Name = "cbbTheLoai";
-            this.cbbTheLoai.Size = new System.Drawing.Size(234, 31);
-            this.cbbTheLoai.TabIndex = 21;
+            this.cbbLinhVuc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbLinhVuc.FormattingEnabled = true;
+            this.cbbLinhVuc.Items.AddRange(new object[] {
+            "Ngoai ngu",
+            "Tin hoc",
+            "Van hoc",
+            "Toan hoc",
+            "Ky nang",
+            "Lich su"});
+            this.cbbLinhVuc.Location = new System.Drawing.Point(145, 149);
+            this.cbbLinhVuc.Name = "cbbLinhVuc";
+            this.cbbLinhVuc.Size = new System.Drawing.Size(234, 31);
+            this.cbbLinhVuc.TabIndex = 21;
             // 
             // btnClear
             // 
@@ -311,12 +328,12 @@
             this.label13.TabIndex = 26;
             this.label13.Text = "Reprint:";
             // 
-            // txtNamTaiBan
+            // txtNamXuatBan
             // 
-            this.txtNamTaiBan.Location = new System.Drawing.Point(533, 287);
-            this.txtNamTaiBan.Name = "txtNamTaiBan";
-            this.txtNamTaiBan.Size = new System.Drawing.Size(234, 32);
-            this.txtNamTaiBan.TabIndex = 28;
+            this.txtNamXuatBan.Location = new System.Drawing.Point(533, 287);
+            this.txtNamXuatBan.Name = "txtNamXuatBan";
+            this.txtNamXuatBan.Size = new System.Drawing.Size(234, 32);
+            this.txtNamXuatBan.TabIndex = 28;
             // 
             // txtNXB
             // 
@@ -325,25 +342,25 @@
             this.txtNXB.Size = new System.Drawing.Size(234, 32);
             this.txtNXB.TabIndex = 29;
             // 
-            // Form_AddNewBook
+            // Form_BookDetail
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(814, 523);
             this.Controls.Add(this.txtNXB);
-            this.Controls.Add(this.txtNamTaiBan);
+            this.Controls.Add(this.txtNamXuatBan);
             this.Controls.Add(this.txtLanTaiBan);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.cbbTheLoai);
+            this.Controls.Add(this.cbbLinhVuc);
             this.Controls.Add(this.cbbLoaiSach);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtTacGia);
-            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.txtGiaBan);
             this.Controls.Add(this.txtTenSach);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.txtGiaMua);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtBookID);
             this.Controls.Add(this.label10);
@@ -361,7 +378,7 @@
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(160)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Form_AddNewBook";
+            this.Name = "Form_BookDetail";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form_AddNewBook";
             this.ResumeLayout(false);
@@ -376,9 +393,9 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox txtGiaBan;
         private System.Windows.Forms.TextBox txtTenSach;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtGiaMua;
         private System.Windows.Forms.TextBox txtBookID;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label5;
@@ -391,13 +408,13 @@
         private System.Windows.Forms.TextBox txtTacGia;
         private System.Windows.Forms.ComboBox cbbLoaiSach;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cbbTheLoai;
+        private System.Windows.Forms.ComboBox cbbLinhVuc;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.TextBox txtLanTaiBan;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox txtNamTaiBan;
+        private System.Windows.Forms.TextBox txtNamXuatBan;
         private System.Windows.Forms.TextBox txtNXB;
     }
 }
