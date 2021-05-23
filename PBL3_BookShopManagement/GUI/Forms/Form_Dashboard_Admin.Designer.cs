@@ -47,14 +47,15 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.labelTime = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timerTime = new System.Windows.Forms.Timer(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.labelTime = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panelControls = new System.Windows.Forms.Panel();
             this.panelLeft.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -78,7 +79,7 @@
             this.panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelLeft.Location = new System.Drawing.Point(0, 0);
             this.panelLeft.Name = "panelLeft";
-            this.panelLeft.Size = new System.Drawing.Size(215, 720);
+            this.panelLeft.Size = new System.Drawing.Size(215, 682);
             this.panelLeft.TabIndex = 0;
             // 
             // btnDiscount
@@ -93,7 +94,7 @@
             this.btnDiscount.Name = "btnDiscount";
             this.btnDiscount.Size = new System.Drawing.Size(203, 60);
             this.btnDiscount.TabIndex = 4;
-            this.btnDiscount.Text = "     Manage Discount";
+            this.btnDiscount.Text = "    Discount";
             this.btnDiscount.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDiscount.UseVisualStyleBackColor = true;
             this.btnDiscount.Click += new System.EventHandler(this.button1_Click);
@@ -186,7 +187,7 @@
             this.btnBookManagement.Name = "btnBookManagement";
             this.btnBookManagement.Size = new System.Drawing.Size(203, 60);
             this.btnBookManagement.TabIndex = 2;
-            this.btnBookManagement.Text = "     Manage Book";
+            this.btnBookManagement.Text = "     Book";
             this.btnBookManagement.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBookManagement.UseVisualStyleBackColor = true;
             this.btnBookManagement.Click += new System.EventHandler(this.btnSaleBooks_Click);
@@ -210,6 +211,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.panel1);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.button8);
             this.panel3.Controls.Add(this.label2);
@@ -276,7 +278,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(215, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(985, 48);
+            this.panel4.Size = new System.Drawing.Size(992, 48);
             this.panel4.TabIndex = 0;
             // 
             // label4
@@ -300,7 +302,7 @@
             this.button9.ForeColor = System.Drawing.Color.White;
             this.button9.Image = ((System.Drawing.Image)(resources.GetObject("button9.Image")));
             this.button9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button9.Location = new System.Drawing.Point(941, 0);
+            this.button9.Location = new System.Drawing.Point(948, 0);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(44, 48);
             this.button9.TabIndex = 2;
@@ -308,64 +310,13 @@
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
-            // panel2
+            // timer1
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(160)))));
-            this.panel2.Controls.Add(this.label7);
-            this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.labelTime);
-            this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(215, 48);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(985, 92);
-            this.panel2.TabIndex = 1;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // label7
+            // timerTime
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(166, 50);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(74, 23);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Admin";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(110, 50);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(59, 23);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Role:";
-            // 
-            // labelTime
-            // 
-            this.labelTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelTime.AutoSize = true;
-            this.labelTime.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTime.ForeColor = System.Drawing.Color.White;
-            this.labelTime.Location = new System.Drawing.Point(876, 34);
-            this.labelTime.Name = "labelTime";
-            this.labelTime.Size = new System.Drawing.Size(106, 23);
-            this.labelTime.TabIndex = 0;
-            this.labelTime.Text = "HH:MM:SS";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(165, 19);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(149, 23);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "SaLaaR HuSyN";
+            this.timerTime.Tick += new System.EventHandler(this.timerTime_Tick);
             // 
             // label1
             // 
@@ -378,14 +329,71 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Welcome:";
             // 
-            // timer1
+            // label5
             // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(165, 19);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(149, 23);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "SaLaaR HuSyN";
             // 
-            // timerTime
+            // labelTime
             // 
-            this.timerTime.Tick += new System.EventHandler(this.timerTime_Tick);
+            this.labelTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelTime.AutoSize = true;
+            this.labelTime.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTime.ForeColor = System.Drawing.Color.White;
+            this.labelTime.Location = new System.Drawing.Point(883, 34);
+            this.labelTime.Name = "labelTime";
+            this.labelTime.Size = new System.Drawing.Size(106, 23);
+            this.labelTime.TabIndex = 0;
+            this.labelTime.Text = "HH:MM:SS";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(110, 50);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(59, 23);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Role:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(166, 50);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(74, 23);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Admin";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(160)))));
+            this.panel2.Controls.Add(this.label7);
+            this.panel2.Controls.Add(this.label6);
+            this.panel2.Controls.Add(this.labelTime);
+            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(215, 48);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(992, 92);
+            this.panel2.TabIndex = 1;
+            // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(215, 142);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(982, 578);
+            this.panel1.TabIndex = 2;
             // panelControls
             // 
             this.panelControls.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -430,24 +438,25 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnViewSales;
         private System.Windows.Forms.Button btnChiPhi;
         private System.Windows.Forms.Button btnBookManagement;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label labelTime;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer timerTime;
         private System.Windows.Forms.Panel panelControls;
         private System.Windows.Forms.Button btnDoanhThu;
         private System.Windows.Forms.Button btnUsers;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnDiscount;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label labelTime;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel1;
     }
 }

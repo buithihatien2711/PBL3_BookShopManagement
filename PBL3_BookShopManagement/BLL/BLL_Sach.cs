@@ -9,54 +9,54 @@ using System.Threading.Tasks;
 
 namespace PBL3_BookShopManagement.BLL
 {
-    class BLL_Book
+    class BLL_Sach
     {
-        private static BLL_Book _Instance;
-        public static BLL_Book Instance
+        private static BLL_Sach _Instance;
+        public static BLL_Sach Instance
         {
             get
             {
                 if(_Instance == null)
                 {
-                    _Instance = new BLL_Book();
+                    _Instance = new BLL_Sach();
                 }
                 return _Instance;
             }
             private set { }
         }
-        private BLL_Book()
+        private BLL_Sach()
         {
         }
         public List<SachView> getListSachView_BLL(string name, string LinhVuc, string LoaiSach)
         {
             if ((LinhVuc == "All") && (LoaiSach == "All"))
             {
-                return DAL_Book.Instance.getListSachViewbyName_DAL(name);
+                return DAL_Sach.Instance.getListSachViewbyName_DAL(name);
             }
             else
             {
                 if (LoaiSach == "All")
                 {
-                    return DAL_Book.Instance.getListSachViewbyLinhVuc_DAL(LinhVuc, name);
+                    return DAL_Sach.Instance.getListSachViewbyLinhVuc_DAL(LinhVuc, name);
                 }
                 else
                 {
-                    return DAL_Book.Instance.getListSachViewbyLoaiSach_DAL(LoaiSach, LinhVuc, name);
+                    return DAL_Sach.Instance.getListSachViewbyLoaiSach_DAL(LoaiSach, LinhVuc, name);
                 }
             }
         }
         public void AddBook_BLL(Sach sach, ThongTinXuatBan thongTin)
         {
-            DAL_Book.Instance.AddSach_DAL(sach, thongTin);
+            DAL_Sach.Instance.AddSach_DAL(sach, thongTin);
         }
         public void UpdateBook_BLL(Sach sach, ThongTinXuatBan thongTin)
         {
-            DAL_Book.Instance.UpdateSach_DAL(sach, thongTin);
+            DAL_Sach.Instance.UpdateSach_DAL(sach, thongTin);
         }
         public void ExcuteSach(Sach sach, ThongTinXuatBan thongTin)
         {
             bool check = false;
-            foreach (DataRow i in DAL_Book.Instance.getAllSach_DAL().Rows)
+            foreach (DataRow i in DAL_Sach.Instance.getAllSach_DAL().Rows)
             {
                 if (Convert.ToInt32(i["MaSach"]) == sach.MaSach)
                 {
@@ -76,7 +76,7 @@ namespace PBL3_BookShopManagement.BLL
         public SachView GetSachViewByMaSach(int masach)
         {
             SachView sach = new SachView();
-            foreach (SachView i in getListSachView_BLL(null, "All", "All"))
+            foreach (SachView i in getListSachView_BLL("", "All", "All"))
             {
                 if (i.MaSach == masach)
                 {
@@ -90,7 +90,7 @@ namespace PBL3_BookShopManagement.BLL
         {
             foreach(int i in listMaSach)
             {
-                DAL_Book.Instance.DeleteSach_DAL(i);
+                DAL_Sach.Instance.DeleteSach_DAL(i);
             }
         }
     }

@@ -36,7 +36,6 @@
             this.txtIDBook = new System.Windows.Forms.TextBox();
             this.txtBookTitle = new System.Windows.Forms.TextBox();
             this.txtPrice = new System.Windows.Forms.TextBox();
-            this.txtDiscount = new System.Windows.Forms.TextBox();
             this.txtPriceAfter = new System.Windows.Forms.TextBox();
             this.btnDel = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -48,7 +47,10 @@
             this.cbbSort = new System.Windows.Forms.ComboBox();
             this.txtSearchName = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtDiscount = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnShow = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -94,9 +96,9 @@
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(160)))));
             this.label6.Location = new System.Drawing.Point(618, 116);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(94, 23);
+            this.label6.Size = new System.Drawing.Size(127, 23);
             this.label6.TabIndex = 5;
-            this.label6.Text = "Discount";
+            this.label6.Text = "Discount(%)";
             // 
             // label7
             // 
@@ -115,6 +117,7 @@
             this.txtIDBook.Name = "txtIDBook";
             this.txtIDBook.Size = new System.Drawing.Size(330, 32);
             this.txtIDBook.TabIndex = 7;
+            this.txtIDBook.TextChanged += new System.EventHandler(this.txtIDBook_TextChanged);
             // 
             // txtBookTitle
             // 
@@ -132,13 +135,6 @@
             this.txtPrice.Size = new System.Drawing.Size(330, 32);
             this.txtPrice.TabIndex = 11;
             // 
-            // txtDiscount
-            // 
-            this.txtDiscount.Location = new System.Drawing.Point(743, 116);
-            this.txtDiscount.Name = "txtDiscount";
-            this.txtDiscount.Size = new System.Drawing.Size(347, 32);
-            this.txtDiscount.TabIndex = 12;
-            // 
             // txtPriceAfter
             // 
             this.txtPriceAfter.Location = new System.Drawing.Point(211, 136);
@@ -153,12 +149,13 @@
             this.btnDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnDel.Location = new System.Drawing.Point(262, 358);
+            this.btnDel.Location = new System.Drawing.Point(404, 410);
             this.btnDel.Name = "btnDel";
             this.btnDel.Size = new System.Drawing.Size(105, 47);
             this.btnDel.TabIndex = 14;
             this.btnDel.Text = "Delete";
             this.btnDel.UseVisualStyleBackColor = false;
+            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
             // btnSearch
             // 
@@ -166,12 +163,13 @@
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnSearch.Location = new System.Drawing.Point(887, 358);
+            this.btnSearch.Location = new System.Drawing.Point(931, 410);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(105, 47);
             this.btnSearch.TabIndex = 15;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnEdit
             // 
@@ -179,12 +177,13 @@
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEdit.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnEdit.Location = new System.Drawing.Point(12, 358);
+            this.btnEdit.Location = new System.Drawing.Point(220, 410);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(105, 47);
             this.btnEdit.TabIndex = 16;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnSave
             // 
@@ -198,6 +197,7 @@
             this.btnSave.TabIndex = 21;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnClear
             // 
@@ -211,6 +211,7 @@
             this.btnClear.TabIndex = 22;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // dataGridView2
             // 
@@ -219,7 +220,7 @@
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersWidth = 51;
             this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(1241, 321);
+            this.dataGridView2.Size = new System.Drawing.Size(1277, 373);
             this.dataGridView2.TabIndex = 24;
             // 
             // btnSort
@@ -228,30 +229,38 @@
             this.btnSort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSort.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSort.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnSort.Location = new System.Drawing.Point(503, 358);
+            this.btnSort.Location = new System.Drawing.Point(607, 410);
             this.btnSort.Name = "btnSort";
             this.btnSort.Size = new System.Drawing.Size(105, 47);
             this.btnSort.TabIndex = 25;
             this.btnSort.Text = "Sort";
             this.btnSort.UseVisualStyleBackColor = false;
+            this.btnSort.Click += new System.EventHandler(this.btnSort_Click);
             // 
             // cbbSort
             // 
             this.cbbSort.FormattingEnabled = true;
-            this.cbbSort.Location = new System.Drawing.Point(614, 367);
+            this.cbbSort.Items.AddRange(new object[] {
+            "Book ID",
+            "Title",
+            "Discount",
+            "Price Before Discount",
+            "Price After Discount"});
+            this.cbbSort.Location = new System.Drawing.Point(718, 419);
             this.cbbSort.Name = "cbbSort";
-            this.cbbSort.Size = new System.Drawing.Size(142, 31);
+            this.cbbSort.Size = new System.Drawing.Size(186, 31);
             this.cbbSort.TabIndex = 26;
             // 
             // txtSearchName
             // 
-            this.txtSearchName.Location = new System.Drawing.Point(1007, 367);
+            this.txtSearchName.Location = new System.Drawing.Point(1042, 419);
             this.txtSearchName.Name = "txtSearchName";
             this.txtSearchName.Size = new System.Drawing.Size(234, 32);
             this.txtSearchName.TabIndex = 27;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtDiscount);
             this.groupBox1.Controls.Add(this.txtPrice);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label3);
@@ -262,17 +271,25 @@
             this.groupBox1.Controls.Add(this.txtIDBook);
             this.groupBox1.Controls.Add(this.btnSave);
             this.groupBox1.Controls.Add(this.txtBookTitle);
-            this.groupBox1.Controls.Add(this.txtDiscount);
             this.groupBox1.Controls.Add(this.txtPriceAfter);
-            this.groupBox1.Location = new System.Drawing.Point(27, 37);
+            this.groupBox1.Location = new System.Drawing.Point(15, 37);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1268, 204);
+            this.groupBox1.Size = new System.Drawing.Size(1314, 204);
             this.groupBox1.TabIndex = 29;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detail Discount";
             // 
+            // txtDiscount
+            // 
+            this.txtDiscount.Location = new System.Drawing.Point(743, 113);
+            this.txtDiscount.Name = "txtDiscount";
+            this.txtDiscount.Size = new System.Drawing.Size(347, 32);
+            this.txtDiscount.TabIndex = 23;
+            this.txtDiscount.TextChanged += new System.EventHandler(this.txtDiscount_TextChanged);
+            // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnShow);
             this.groupBox2.Controls.Add(this.dataGridView2);
             this.groupBox2.Controls.Add(this.btnSearch);
             this.groupBox2.Controls.Add(this.btnDel);
@@ -280,28 +297,55 @@
             this.groupBox2.Controls.Add(this.btnEdit);
             this.groupBox2.Controls.Add(this.cbbSort);
             this.groupBox2.Controls.Add(this.btnSort);
-            this.groupBox2.Location = new System.Drawing.Point(27, 247);
+            this.groupBox2.Location = new System.Drawing.Point(15, 250);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1268, 411);
+            this.groupBox2.Size = new System.Drawing.Size(1311, 463);
             this.groupBox2.TabIndex = 30;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "List Discount";
+            // 
+            // btnShow
+            // 
+            this.btnShow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(160)))));
+            this.btnShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnShow.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShow.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnShow.Location = new System.Drawing.Point(35, 410);
+            this.btnShow.Name = "btnShow";
+            this.btnShow.Size = new System.Drawing.Size(105, 47);
+            this.btnShow.TabIndex = 28;
+            this.btnShow.Text = "Show";
+            this.btnShow.UseVisualStyleBackColor = false;
+            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(160)))));
+            this.label2.Location = new System.Drawing.Point(542, 11);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(217, 28);
+            this.label2.TabIndex = 31;
+            this.label2.Text = "Manage Discount";
             // 
             // UC_Discount
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "UC_Discount";
-            this.Size = new System.Drawing.Size(1341, 683);
+            this.Size = new System.Drawing.Size(1341, 719);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -315,7 +359,6 @@
         private System.Windows.Forms.TextBox txtIDBook;
         private System.Windows.Forms.TextBox txtBookTitle;
         private System.Windows.Forms.TextBox txtPrice;
-        private System.Windows.Forms.TextBox txtDiscount;
         private System.Windows.Forms.TextBox txtPriceAfter;
         private System.Windows.Forms.Button btnDel;
         private System.Windows.Forms.Button btnSearch;
@@ -328,5 +371,8 @@
         private System.Windows.Forms.TextBox txtSearchName;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btnShow;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtDiscount;
     }
 }

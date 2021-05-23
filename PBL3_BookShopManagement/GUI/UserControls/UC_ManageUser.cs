@@ -112,12 +112,6 @@ namespace PBL3_BookShopManagement.GUI.UserControls
             txtPass.Text = "";
         }
 
-        //private void btnAdd_Click(object sender, EventArgs e)
-        //{
-        //    ResetGUI();
-        //    txtName.Focus();
-        //}
-
         private void btnShow_Click(object sender, EventArgs e)
         {
             //dataGridView1.DataSource = BLL_BookshopManagement.Instance.GetListStaffView_BLL(null, ((CBBItem)(cbbShow.SelectedItem)).Value);

@@ -72,7 +72,7 @@
             this.cbbSort.FormattingEnabled = true;
             this.cbbSort.Items.AddRange(new object[] {
             "Book ID",
-            "Name",
+            "Title",
             "Selling Cost",
             "Cost Price"});
             this.cbbSort.Location = new System.Drawing.Point(1082, 647);

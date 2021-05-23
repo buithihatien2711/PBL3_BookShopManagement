@@ -19,38 +19,38 @@ namespace PBL3_BookShopManagement.GUI.UserControls
         {
             InitializeComponent();
 
-            //Tạo watermark cho txtSearch
-            txtSearch.ForeColor = Color.LightGray;
-            txtSearch.Text = "Enter Name Book";
-            txtSearch.Leave += new System.EventHandler(this.txtSearch_Leave);
-            txtSearch.Enter += new System.EventHandler(this.txtSearch_Enter);
+            ////Tạo watermark cho txtSearch
+            //txtSearch.ForeColor = Color.LightGray;
+            //txtSearch.Text = "Enter Name Book";
+            //txtSearch.Leave += new System.EventHandler(this.txtSearch_Leave);
+            //txtSearch.Enter += new System.EventHandler(this.txtSearch_Enter);
             cbbLoaiSach.SelectedIndex = 0;
             cbbLinhVuc.SelectedIndex = 0;
         }
-        private void txtSearch_Leave(object sender, EventArgs e)
-        {
-            if (txtSearch.Text == "")
-            {
-                txtSearch.Text = "Enter Name Book";
-                txtSearch.ForeColor = Color.Gray;
-            }
-        }
+        //private void txtSearch_Leave(object sender, EventArgs e)
+        //{
+        //    if (txtSearch.Text == "")
+        //    {
+        //        txtSearch.Text = "Enter Name Book";
+        //        txtSearch.ForeColor = Color.Gray;
+        //    }
+        //}
 
-        private void txtSearch_Enter(object sender, EventArgs e)
-        {
-            if (txtSearch.Text == "Enter Name Book")
-            {
-                txtSearch.Text = "";
-                txtSearch.ForeColor = Color.Black;
-            }
-        }
+        //private void txtSearch_Enter(object sender, EventArgs e)
+        //{
+        //    if (txtSearch.Text == "Enter Name Book")
+        //    {
+        //        txtSearch.Text = "";
+        //        txtSearch.ForeColor = Color.Black;
+        //    }
+        //}
 
         private void button2_Click(object sender, EventArgs e)
         {
         }
         public void Show(string name, string LinhVuc, string LoaiSach)
         {
-            dataGridView1.DataSource = BLL_Book.Instance.getListSachView_BLL(name, LinhVuc, LoaiSach);
+            dataGridView1.DataSource = BLL_Sach.Instance.getListSachView_BLL(name, LinhVuc, LoaiSach);
             dataGridView1.Columns[0].HeaderText = "Book ID";
             dataGridView1.Columns[1].HeaderText = "Book Title";
             dataGridView1.Columns[2].HeaderText = "Cost Price";
@@ -64,21 +64,25 @@ namespace PBL3_BookShopManagement.GUI.UserControls
         }
         private void btnShow_Click(object sender, EventArgs e)
         {
-            Show(null, cbbLinhVuc.SelectedItem.ToString(), cbbLoaiSach.SelectedItem.ToString());
+            Show("", cbbLinhVuc.SelectedItem.ToString(), cbbLoaiSach.SelectedItem.ToString());
             //Show(null, "All", "All");
+            //string s = txtSearch.Text;
+            //dataGridView1.DataSource = BLL_Book.Instance.
+            //                getListSachView_BLL(null, cbbLinhVuc.SelectedItem.ToString(), cbbLoaiSach.SelectedItem.ToString());
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            if (txtSearch.Text == "Enter Name Book")
-            {
-                Show(null, cbbLinhVuc.SelectedItem.ToString(), cbbLoaiSach.SelectedItem.ToString());
+            //if (txtSearch.Text == "Enter Name Book")
+            //{
+            //    Show(null, cbbLinhVuc.SelectedItem.ToString(), cbbLoaiSach.SelectedItem.ToString());
 
-            }
-            else
-            {
-                Show(txtSearch.Text, cbbLinhVuc.SelectedItem.ToString(), cbbLoaiSach.SelectedItem.ToString());
-            }
+            //}
+            //else
+            //{
+            //    Show(txtSearch.Text, cbbLinhVuc.SelectedItem.ToString(), cbbLoaiSach.SelectedItem.ToString());
+            //}
+            Show(txtSearch.Text, cbbLinhVuc.SelectedItem.ToString(), cbbLoaiSach.SelectedItem.ToString());
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -110,39 +114,62 @@ namespace PBL3_BookShopManagement.GUI.UserControls
             {
                 lisMSDel.Add(Convert.ToInt32(i.Cells["MaSach"].Value));
             }
-            BLL_Book.Instance.DeleteSach_BLL(lisMSDel);
-            if (txtSearch.Text == "Enter Name Book")
-            {
-                Show(null, cbbLinhVuc.SelectedItem.ToString(), cbbLoaiSach.SelectedItem.ToString());
+            BLL_Sach.Instance.DeleteSach_BLL(lisMSDel);
+            //if (txtSearch.Text == "Enter Name Book")
+            //{
+            //    Show(null, cbbLinhVuc.SelectedItem.ToString(), cbbLoaiSach.SelectedItem.ToString());
 
-            }
-            else
-            {
-                Show(txtSearch.Text, cbbLinhVuc.SelectedItem.ToString(), cbbLoaiSach.SelectedItem.ToString());
-            }
+            //}
+            //else
+            //{
+            //    Show(txtSearch.Text, cbbLinhVuc.SelectedItem.ToString(), cbbLoaiSach.SelectedItem.ToString());
+            //}
+            Show(txtSearch.Text, cbbLinhVuc.SelectedItem.ToString(), cbbLoaiSach.SelectedItem.ToString());
         }
 
         private void btnSort_Click(object sender, EventArgs e)
         {
-            //if (cbbSort.SelectedIndex != -1)
-            //{
-            //    string sortBy = cbbSort.SelectedItem.ToString();
-            //    switch (sortBy)
-            //    {
-            //        case "Book ID":
-            //            dataGridView1.DataSource = BLL_Staff.Instance.
-            //                GetListStaffView_BLL(null, ((CBBItem)(cbbShow.SelectedItem)).Value).OrderBy(o => o.ID_Staff).ToList();
-            //            break;
-            //        case "Name Staff":
-            //            dataGridView1.DataSource = BLL_Staff.Instance.
-            //                GetListStaffView_BLL(null, ((CBBItem)(cbbShow.SelectedItem)).Value).OrderBy(o => o.Name_Staff).ToList();
-            //            break;
-            //    }
-            //}
-            //else
-            //{
-            //    MessageBox.Show("select attribute to sort");
-            //}
+            if (cbbSort.SelectedIndex != -1)
+            {
+                string sortBy = cbbSort.SelectedItem.ToString();
+                switch (sortBy)
+                {
+                    case "Book ID":
+                        dataGridView1.DataSource = BLL_Sach.Instance.
+                            getListSachView_BLL(txtSearch.Text, cbbLinhVuc.SelectedItem.ToString(), cbbLoaiSach.SelectedItem.ToString()).
+                            OrderBy(o => o.MaSach).ToList();
+                        break;
+                    case "Title":
+                        dataGridView1.DataSource = BLL_Sach.Instance.
+                            getListSachView_BLL(txtSearch.Text, cbbLinhVuc.SelectedItem.ToString(), cbbLoaiSach.SelectedItem.ToString()).
+                            OrderBy(o => o.TenSach).ToList();
+                        break;
+                    case "Selling Cost":
+                        dataGridView1.DataSource = BLL_Sach.Instance.
+                            getListSachView_BLL(txtSearch.Text, cbbLinhVuc.SelectedItem.ToString(), cbbLoaiSach.SelectedItem.ToString()).
+                            OrderBy(o => o.GiaBia).ToList();
+                        break;
+                    case "Cost Price":
+                        dataGridView1.DataSource = BLL_Sach.Instance.
+                            getListSachView_BLL(txtSearch.Text, cbbLinhVuc.SelectedItem.ToString(), cbbLoaiSach.SelectedItem.ToString()).
+                            OrderBy(o => o.GiaMua).ToList();
+                        break;
+                }
+                dataGridView1.Columns[0].HeaderText = "Book ID";
+                dataGridView1.Columns[1].HeaderText = "Book Title";
+                dataGridView1.Columns[2].HeaderText = "Cost Price";
+                dataGridView1.Columns[3].HeaderText = "Kind of Book";
+                dataGridView1.Columns[4].HeaderText = "Author";
+                dataGridView1.Columns[5].HeaderText = "Category";
+                dataGridView1.Columns[6].HeaderText = "Reprint";
+                dataGridView1.Columns[7].HeaderText = "Publishing year";
+                dataGridView1.Columns[8].HeaderText = "Publisher";
+                dataGridView1.Columns[9].HeaderText = "Selling price";
+            }
+            else
+            {
+                MessageBox.Show("select attribute to sort");
+            }
         }
     }
 }

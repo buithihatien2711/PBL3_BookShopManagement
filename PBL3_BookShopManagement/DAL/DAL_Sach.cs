@@ -8,22 +8,22 @@ using System.Threading.Tasks;
 
 namespace PBL3_BookShopManagement.DAL
 {
-    class DAL_Book
+    class DAL_Sach
     {
-        private static DAL_Book _Instance;
-        public static DAL_Book Instance
+        private static DAL_Sach _Instance;
+        public static DAL_Sach Instance
         {
             get
             {
                 if(_Instance == null)
                 {
-                    _Instance = new DAL_Book();
+                    _Instance = new DAL_Sach();
                 }
                 return _Instance;
             }
             private set { }
         }
-        private DAL_Book() { }
+        private DAL_Sach() { }
         public DataTable getAllSach_DAL()
         {
             return DBHelper.Instance.GetRecord("select * from Sach");
@@ -51,7 +51,7 @@ namespace PBL3_BookShopManagement.DAL
         public List<SachView> getListSachViewbyName_DAL(string name)
         {
             string query = "";
-            if (name == null)
+            if (name == "")
             {
                 query = "select Sach.MaSach, TenSach, GiaMua, TenLoaiSach, TenTacGia, TenLinhVuc, LanTaiBan, NamXuatBan, NhaXuatBan, GiaBia " +
                  "from Sach, ThongTinXuatBan where Sach.MaSach = ThongTinXuatBan.MaSach";

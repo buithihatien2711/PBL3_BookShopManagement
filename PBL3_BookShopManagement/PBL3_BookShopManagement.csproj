@@ -46,9 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BLL\BLL_Book.cs" />
+    <Compile Include="BLL\BLL_Sach.cs" />
     <Compile Include="BLL\BLL_Staff.cs" />
-    <Compile Include="DAL\DAL_Book.cs" />
+    <Compile Include="BLL\BLL_SachKhuyenMai.cs" />
+    <Compile Include="DAL\DAL_Sach.cs" />
+    <Compile Include="DAL\DAL_SachKhuyenMai.cs" />
     <Compile Include="DAL\DAL_Staff.cs" />
     <Compile Include="DAL\DBHelper.cs" />
     <Compile Include="DTO\Account.cs" />
@@ -56,6 +58,7 @@
     <Compile Include="DTO\CBBItem.cs" />
     <Compile Include="DTO\Position.cs" />
     <Compile Include="DTO\SachKhuyenMai.cs" />
+    <Compile Include="DTO\SachKMView.cs" />
     <Compile Include="DTO\SachView.cs" />
     <Compile Include="DTO\Staff.cs" />
     <Compile Include="DTO\StaffView.cs" />

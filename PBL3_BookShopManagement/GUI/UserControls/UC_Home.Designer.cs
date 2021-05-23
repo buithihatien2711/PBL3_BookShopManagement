@@ -61,7 +61,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(160)))));
-            this.label2.Location = new System.Drawing.Point(523, 20);
+            this.label2.Location = new System.Drawing.Point(514, 34);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(354, 28);
             this.label2.TabIndex = 12;
@@ -75,7 +75,7 @@
             this.panel3.Controls.Add(this.label9);
             this.panel3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel3.ForeColor = System.Drawing.Color.White;
-            this.panel3.Location = new System.Drawing.Point(735, 71);
+            this.panel3.Location = new System.Drawing.Point(726, 85);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(223, 102);
             this.panel3.TabIndex = 13;
@@ -114,7 +114,7 @@
             this.panel4.Controls.Add(this.pictureBox4);
             this.panel4.Controls.Add(this.txtSoHoaDon);
             this.panel4.Controls.Add(this.label1);
-            this.panel4.Location = new System.Drawing.Point(1047, 71);
+            this.panel4.Location = new System.Drawing.Point(1038, 85);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(223, 103);
             this.panel4.TabIndex = 14;
@@ -158,7 +158,7 @@
             this.panel5.Controls.Add(this.label4);
             this.panel5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel5.ForeColor = System.Drawing.Color.White;
-            this.panel5.Location = new System.Drawing.Point(394, 71);
+            this.panel5.Location = new System.Drawing.Point(385, 85);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(223, 103);
             this.panel5.TabIndex = 15;
@@ -199,7 +199,7 @@
             this.panel2.Controls.Add(this.label5);
             this.panel2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel2.ForeColor = System.Drawing.Color.White;
-            this.panel2.Location = new System.Drawing.Point(72, 72);
+            this.panel2.Location = new System.Drawing.Point(63, 86);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(223, 102);
             this.panel2.TabIndex = 16;
