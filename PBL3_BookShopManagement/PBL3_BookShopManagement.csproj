@@ -49,10 +49,12 @@
     <Compile Include="BLL\BLL_Sach.cs" />
     <Compile Include="BLL\BLL_Staff.cs" />
     <Compile Include="BLL\BLL_SachKhuyenMai.cs" />
+    <Compile Include="BLL\BLL_ThongKe.cs" />
     <Compile Include="DAL\DAL_Sach.cs" />
     <Compile Include="DAL\DAL_SachKhuyenMai.cs" />
     <Compile Include="DAL\DAL_Staff.cs" />
     <Compile Include="DAL\DBHelper.cs" />
+    <Compile Include="DAL\DAL_ThongKe.cs" />
     <Compile Include="DTO\Account.cs" />
     <Compile Include="DTO\Sach.cs" />
     <Compile Include="DTO\CBBItem.cs" />
