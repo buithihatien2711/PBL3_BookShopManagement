@@ -44,5 +44,21 @@ namespace PBL3_BookShopManagement.BLL
         {
             return DAL_ThongKe.Instance.GetSoLuongSachBan_DAL();
         }
+        public DataTable GetDoanhThuTheoNhanVien_BLL(DateTime dateFrom, DateTime dateTo)
+        {
+            return DAL_ThongKe.Instance.GetDoanhThuTheoNhanVien_DAL(dateFrom, dateTo);
+        }
+        public DataTable GetDoanhThuTheoTenSach_BLL(DateTime dateFrom, DateTime dateTo)
+        {
+            return DAL_ThongKe.Instance.GetDoanhThuTheoTenSach_DAL(dateFrom, dateTo);
+        }
+        public DataTable GetDoanhThuTheoLoaiSach_BLL(DateTime dateFrom, DateTime dateTo)
+        {
+            return DAL_ThongKe.Instance.GetDoanhThuTheoLoaiSach_DAL(dateFrom, dateTo);
+        }
+        public DataTable GetDoanhThuTheoLinhVuc_BLL(DateTime dateFrom, DateTime dateTo)
+        {
+            return DAL_ThongKe.Instance.GetDoanhThuTheoLinhVuc_DAL(dateFrom, dateTo);
+        }
     }
 }

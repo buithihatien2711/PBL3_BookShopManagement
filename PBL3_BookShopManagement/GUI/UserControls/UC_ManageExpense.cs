@@ -67,10 +67,13 @@ namespace PBL3_BookShopManagement.GUI.UserControls
         //        txtIDStaff.ForeColor = Color.Black;
         //    }
         //}
+        public void SetGUI()
+        {
 
+        }
         private void btnStatistic_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = BLL_ThongKe.Instance.GetNhatKiNhapKho_BLL(dateFrom.Value, dateTo.Value);
+            dataGridView1.DataSource = BLL_ThongKe.Instance.GetNhatKiNhapKho_BLL(dtpFrom.Value, dtpTo.Value);
         }
     }
 }

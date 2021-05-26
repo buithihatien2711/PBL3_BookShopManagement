@@ -17,6 +17,8 @@ namespace PBL3_BookShopManagement.GUI.UserControls
         {
             InitializeComponent();
             SetGUI();
+            ShowBaoCaoTH(dtpFrom.Value, dtpTo.Value);
+            //Show();
             ////Tạo watermark cho txtIDBook
             //txtIDHoaDon.ForeColor = Color.LightGray;
             //txtIDHoaDon.Text = "Enter IDInvoice";
@@ -28,7 +30,7 @@ namespace PBL3_BookShopManagement.GUI.UserControls
             //txtIDStaff.Text = "Enter IDStaff";
             //txtIDStaff.Leave += new System.EventHandler(this.txtIDStaff_Leave);
             //txtIDStaff.Enter += new System.EventHandler(this.txtIDStaff_Enter);
-            
+
         }
 
         //Tạo watermark cho txtIDBook
@@ -74,15 +76,170 @@ namespace PBL3_BookShopManagement.GUI.UserControls
             txtSoHoaDon.Text = BLL_ThongKe.Instance.GetSoLuongHoaDon_BLL().ToString();
             txtDoanhThu.Text = BLL_ThongKe.Instance.GetDoanhThu_BLL().ToString();
             txtSoSachBan.Text = BLL_ThongKe.Instance.GetSoLuongSachBan_BLL().ToString();
+
+            dtpFrom.Value = new DateTime(DateTime.Now.Year, 1, 1);
+            dtpTo.Value = dtpFrom.Value.AddYears(1).AddDays(-1);
         }
-        private void btnStatistic_Click(object sender, EventArgs e)
+
+        public void ShowBaoCaoTH(DateTime dateFrom, DateTime dateTo)
         {
-            dataGridView1.DataSource = BLL_ThongKe.Instance.GetHoaDon_BLL(dateFrom.Value, dateTo.Value);
+            dataGridView1.DataSource = BLL_ThongKe.Instance.GetHoaDon_BLL(dateFrom, dateTo);
             dataGridView1.Columns[0].HeaderText = "ID Invoice";
             dataGridView1.Columns[1].HeaderText = "Name Customer";
             dataGridView1.Columns[2].HeaderText = "Date(month/day/year)";
             dataGridView1.Columns[3].HeaderText = "Total";
-            dataGridView1.Columns[4].HeaderText = "ID_Staff";
+            dataGridView1.Columns[4].HeaderText = "ID Staff";
+        }
+        public void ShowTheoNV(DateTime dateFrom, DateTime dateTo)
+        {
+            dataGridView1.DataSource = BLL_ThongKe.Instance.GetDoanhThuTheoNhanVien_BLL(dateFrom, dateTo);
+            dataGridView1.Columns[0].HeaderText = "ID Staff";
+            dataGridView1.Columns[1].HeaderText = "Name Staff";
+            dataGridView1.Columns[2].HeaderText = "Total";
+        }
+        public void ShowTheoSach(DateTime dateFrom, DateTime dateTo)
+        {
+            dataGridView1.DataSource = BLL_ThongKe.Instance.GetDoanhThuTheoTenSach_BLL(dateFrom, dateTo);
+            dataGridView1.Columns[0].HeaderText = "ID Book";
+            dataGridView1.Columns[1].HeaderText = "Title";
+            dataGridView1.Columns[2].HeaderText = "Total";
+        }
+        public void ShowTheoLoaiSach(DateTime dateFrom, DateTime dateTo)
+        {
+            dataGridView1.DataSource = BLL_ThongKe.Instance.GetDoanhThuTheoLoaiSach_BLL(dateFrom, dateTo);
+            dataGridView1.Columns[0].HeaderText = "Kind of book";
+            dataGridView1.Columns[1].HeaderText = "Total";
+        }
+        public void ShowTheoLinhVuc(DateTime dateFrom, DateTime dateTo)
+        {
+            dataGridView1.DataSource = BLL_ThongKe.Instance.GetDoanhThuTheoLinhVuc_BLL(dateFrom, dateTo);
+            dataGridView1.Columns[0].HeaderText = "Category";
+            dataGridView1.Columns[1].HeaderText = "Total";
+        }
+        private void btnStatistic_Click(object sender, EventArgs e)
+        {
+            DateTime dateFrom = dtpFrom.Value;
+            DateTime dateTo = dtpTo.Value;
+            if (rbtnTongHop.Checked)
+            {
+                ShowBaoCaoTH(dateFrom, dateTo);
+            }
+            else
+            {
+                if (rbtnNhanVien.Checked)
+                {
+                    ShowTheoNV(dateFrom, dateTo);
+                }
+                else
+                {
+                    if (rbtnSach.Checked)
+                    {
+                        ShowTheoSach(dateFrom, dateTo);
+                    }
+                    else
+                    {
+                        if (rbtnLoaiSach.Checked)
+                        {
+                            ShowTheoLoaiSach(dateFrom, dateTo);
+                        }
+                        else
+                        {
+                            ShowTheoLinhVuc(dateFrom, dateTo);
+                        }
+                    }
+                }
+            }
+        }
+
+        private void rbtnTongHop_CheckedChanged(object sender, EventArgs e)
+        {
+            ShowBaoCaoTH(dtpFrom.Value, dtpTo.Value);
+        }
+
+        private void rbtnNhanVien_CheckedChanged(object sender, EventArgs e)
+        {
+            ShowTheoNV(dtpFrom.Value, dtpTo.Value);
+        }
+
+        private void rbtnSach_CheckedChanged(object sender, EventArgs e)
+        {
+            ShowTheoSach(dtpFrom.Value, dtpTo.Value);
+        }
+
+        private void rbtnLoaiSach_CheckedChanged(object sender, EventArgs e)
+        {
+            ShowTheoLoaiSach(dtpFrom.Value, dtpTo.Value);
+        }
+
+        private void rbtnLinhVuc_CheckedChanged(object sender, EventArgs e)
+        {
+            ShowTheoLinhVuc(dtpFrom.Value, dtpTo.Value);
+        }
+
+        private void dtpFrom_ValueChanged(object sender, EventArgs e)
+        {
+            if (rbtnTongHop.Checked)
+            {
+                ShowBaoCaoTH(dtpFrom.Value, dtpTo.Value);
+            }
+            else
+            {
+                if (rbtnNhanVien.Checked)
+                {
+                    ShowTheoNV(dtpFrom.Value, dtpTo.Value);
+                }
+                else
+                {
+                    if (rbtnSach.Checked)
+                    {
+                        ShowTheoSach(dtpFrom.Value, dtpTo.Value);
+                    }
+                    else
+                    {
+                        if (rbtnLoaiSach.Checked)
+                        {
+                            ShowTheoLoaiSach(dtpFrom.Value, dtpTo.Value);
+                        }
+                        else
+                        {
+                            ShowTheoLinhVuc(dtpFrom.Value, dtpTo.Value);
+                        }
+                    }
+                }
+            }
+        }
+
+        private void dtpTo_ValueChanged(object sender, EventArgs e)
+        {
+            if (rbtnTongHop.Checked)
+            {
+                ShowBaoCaoTH(dtpFrom.Value, dtpTo.Value);
+            }
+            else
+            {
+                if (rbtnNhanVien.Checked)
+                {
+                    ShowTheoNV(dtpFrom.Value, dtpTo.Value);
+                }
+                else
+                {
+                    if (rbtnSach.Checked)
+                    {
+                        ShowTheoSach(dtpFrom.Value, dtpTo.Value);
+                    }
+                    else
+                    {
+                        if (rbtnLoaiSach.Checked)
+                        {
+                            ShowTheoLoaiSach(dtpFrom.Value, dtpTo.Value);
+                        }
+                        else
+                        {
+                            ShowTheoLinhVuc(dtpFrom.Value, dtpTo.Value);
+                        }
+                    }
+                }
+            }
         }
     }
 }
