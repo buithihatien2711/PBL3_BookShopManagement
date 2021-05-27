@@ -74,11 +74,12 @@ namespace PBL3_BookShopManagement.GUI.UserControls
         {
             rbtnTongHop.Checked = true;
             txtSoHoaDon.Text = BLL_ThongKe.Instance.GetSoLuongHoaDon_BLL().ToString();
-            txtDoanhThu.Text = BLL_ThongKe.Instance.GetDoanhThu_BLL().ToString();
+            txtDoanhThu.Text = string.Format("{0:#,##0.00}", BLL_ThongKe.Instance.GetDoanhThu_BLL());
             txtSoSachBan.Text = BLL_ThongKe.Instance.GetSoLuongSachBan_BLL().ToString();
 
             dtpFrom.Value = new DateTime(DateTime.Now.Year, 1, 1);
             dtpTo.Value = dtpFrom.Value.AddYears(1).AddDays(-1);
+            SetDoanhThu_TG();
         }
 
         public void ShowBaoCaoTH(DateTime dateFrom, DateTime dateTo)
@@ -90,32 +91,41 @@ namespace PBL3_BookShopManagement.GUI.UserControls
             dataGridView1.Columns[3].HeaderText = "Total";
             dataGridView1.Columns[4].HeaderText = "ID Staff";
         }
+
         public void ShowTheoNV(DateTime dateFrom, DateTime dateTo)
         {
             dataGridView1.DataSource = BLL_ThongKe.Instance.GetDoanhThuTheoNhanVien_BLL(dateFrom, dateTo);
             dataGridView1.Columns[0].HeaderText = "ID Staff";
             dataGridView1.Columns[1].HeaderText = "Name Staff";
-            dataGridView1.Columns[2].HeaderText = "Total";
+            dataGridView1.Columns[2].HeaderText = "Amount of book";
+            dataGridView1.Columns[3].HeaderText = "Amount of money";
         }
+
         public void ShowTheoSach(DateTime dateFrom, DateTime dateTo)
         {
             dataGridView1.DataSource = BLL_ThongKe.Instance.GetDoanhThuTheoTenSach_BLL(dateFrom, dateTo);
             dataGridView1.Columns[0].HeaderText = "ID Book";
             dataGridView1.Columns[1].HeaderText = "Title";
-            dataGridView1.Columns[2].HeaderText = "Total";
+            dataGridView1.Columns[2].HeaderText = "Amount of book";
+            dataGridView1.Columns[3].HeaderText = "Amount of money";
         }
+
         public void ShowTheoLoaiSach(DateTime dateFrom, DateTime dateTo)
         {
             dataGridView1.DataSource = BLL_ThongKe.Instance.GetDoanhThuTheoLoaiSach_BLL(dateFrom, dateTo);
             dataGridView1.Columns[0].HeaderText = "Kind of book";
-            dataGridView1.Columns[1].HeaderText = "Total";
+            dataGridView1.Columns[1].HeaderText = "Amount of book";
+            dataGridView1.Columns[2].HeaderText = "Amount of money";
         }
+
         public void ShowTheoLinhVuc(DateTime dateFrom, DateTime dateTo)
         {
             dataGridView1.DataSource = BLL_ThongKe.Instance.GetDoanhThuTheoLinhVuc_BLL(dateFrom, dateTo);
             dataGridView1.Columns[0].HeaderText = "Category";
-            dataGridView1.Columns[1].HeaderText = "Total";
+            dataGridView1.Columns[1].HeaderText = "Amount of book";
+            dataGridView1.Columns[2].HeaderText = "Amount of money";
         }
+
         private void btnStatistic_Click(object sender, EventArgs e)
         {
             DateTime dateFrom = dtpFrom.Value;
@@ -153,27 +163,42 @@ namespace PBL3_BookShopManagement.GUI.UserControls
 
         private void rbtnTongHop_CheckedChanged(object sender, EventArgs e)
         {
-            ShowBaoCaoTH(dtpFrom.Value, dtpTo.Value);
+            if (rbtnTongHop.Checked)
+            {
+                ShowBaoCaoTH(dtpFrom.Value, dtpTo.Value);
+            }
         }
 
         private void rbtnNhanVien_CheckedChanged(object sender, EventArgs e)
         {
-            ShowTheoNV(dtpFrom.Value, dtpTo.Value);
+            if (rbtnNhanVien.Checked)
+            {
+                ShowTheoNV(dtpFrom.Value, dtpTo.Value);
+            }
         }
 
         private void rbtnSach_CheckedChanged(object sender, EventArgs e)
         {
-            ShowTheoSach(dtpFrom.Value, dtpTo.Value);
+            if (rbtnSach.Checked)
+            {
+                ShowTheoSach(dtpFrom.Value, dtpTo.Value);
+            }
         }
 
         private void rbtnLoaiSach_CheckedChanged(object sender, EventArgs e)
         {
-            ShowTheoLoaiSach(dtpFrom.Value, dtpTo.Value);
+            if (rbtnLoaiSach.Checked)
+            {
+                ShowTheoLoaiSach(dtpFrom.Value, dtpTo.Value);
+            }
         }
 
         private void rbtnLinhVuc_CheckedChanged(object sender, EventArgs e)
         {
-            ShowTheoLinhVuc(dtpFrom.Value, dtpTo.Value);
+            if (rbtnLinhVuc.Checked)
+            {
+                ShowTheoLinhVuc(dtpFrom.Value, dtpTo.Value);
+            }
         }
 
         private void dtpFrom_ValueChanged(object sender, EventArgs e)
@@ -207,6 +232,7 @@ namespace PBL3_BookShopManagement.GUI.UserControls
                     }
                 }
             }
+            SetDoanhThu_TG();
         }
 
         private void dtpTo_ValueChanged(object sender, EventArgs e)
@@ -240,6 +266,14 @@ namespace PBL3_BookShopManagement.GUI.UserControls
                     }
                 }
             }
+            SetDoanhThu_TG();
+        }
+
+        private void SetDoanhThu_TG()
+        {
+            txtSachBan_TG.Text = BLL_ThongKe.Instance.GetSoSachBan_TG_BLL(dtpFrom.Value, dtpTo.Value).ToString();
+            txtDoanhThu_TG.Text = string.Format("{0:#,##0.00}", BLL_ThongKe.Instance.GetTongTienBan_TG_BLL(dtpFrom.Value, dtpTo.Value));
+            txtHoaDon_TG.Text = BLL_ThongKe.Instance.GetSoHoaDon_TG_BLL(dtpFrom.Value, dtpTo.Value).ToString();
         }
     }
 }

@@ -35,9 +35,7 @@
             this.rbtnSach = new System.Windows.Forms.RadioButton();
             this.rbtnNhanVien = new System.Windows.Forms.RadioButton();
             this.rbtnTongHop = new System.Windows.Forms.RadioButton();
-            this.btnStatistic = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.cbbNVBanHang = new System.Windows.Forms.ComboBox();
             this.dtpTo = new System.Windows.Forms.DateTimePicker();
             this.dtpFrom = new System.Windows.Forms.DateTimePicker();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -54,6 +52,13 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtSachBan_TG = new System.Windows.Forms.TextBox();
+            this.txtDoanhThu_TG = new System.Windows.Forms.TextBox();
+            this.txtHoaDon_TG = new System.Windows.Forms.TextBox();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -143,24 +148,6 @@
             this.rbtnTongHop.UseVisualStyleBackColor = true;
             this.rbtnTongHop.CheckedChanged += new System.EventHandler(this.rbtnTongHop_CheckedChanged);
             // 
-            // btnStatistic
-            // 
-            this.btnStatistic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btnStatistic.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnStatistic.FlatAppearance.BorderSize = 0;
-            this.btnStatistic.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
-            this.btnStatistic.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnStatistic.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStatistic.ForeColor = System.Drawing.Color.Black;
-            this.btnStatistic.Location = new System.Drawing.Point(1004, 53);
-            this.btnStatistic.Name = "btnStatistic";
-            this.btnStatistic.Size = new System.Drawing.Size(101, 38);
-            this.btnStatistic.TabIndex = 14;
-            this.btnStatistic.Text = "Statistic";
-            this.btnStatistic.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnStatistic.UseVisualStyleBackColor = false;
-            this.btnStatistic.Click += new System.EventHandler(this.btnStatistic_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -170,25 +157,6 @@
             this.label1.Size = new System.Drawing.Size(30, 23);
             this.label1.TabIndex = 17;
             this.label1.Text = "to";
-            // 
-            // cbbNVBanHang
-            // 
-            this.cbbNVBanHang.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cbbNVBanHang.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbbNVBanHang.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.cbbNVBanHang.FormattingEnabled = true;
-            this.cbbNVBanHang.Items.AddRange(new object[] {
-            "NVA",
-            "BTH",
-            "NVB",
-            "NVAT",
-            "HTT"});
-            this.cbbNVBanHang.Location = new System.Drawing.Point(786, 55);
-            this.cbbNVBanHang.Name = "cbbNVBanHang";
-            this.cbbNVBanHang.Size = new System.Drawing.Size(164, 31);
-            this.cbbNVBanHang.TabIndex = 15;
-            this.cbbNVBanHang.Text = "Name seller";
-            this.cbbNVBanHang.UseWaitCursor = true;
             // 
             // dtpTo
             // 
@@ -210,11 +178,11 @@
             // 
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(22, 211);
+            this.dataGridView1.Location = new System.Drawing.Point(22, 197);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1281, 501);
+            this.dataGridView1.Size = new System.Drawing.Size(1281, 350);
             this.dataGridView1.TabIndex = 10;
             // 
             // panel1
@@ -256,9 +224,9 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(120, 10);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(117, 23);
+            this.label2.Size = new System.Drawing.Size(167, 23);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Sold books";
+            this.label2.Text = "Total sold books";
             // 
             // panel2
             // 
@@ -277,9 +245,9 @@
             this.txtDoanhThu.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtDoanhThu.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold);
             this.txtDoanhThu.ForeColor = System.Drawing.Color.White;
-            this.txtDoanhThu.Location = new System.Drawing.Point(124, 47);
+            this.txtDoanhThu.Location = new System.Drawing.Point(91, 47);
             this.txtDoanhThu.Name = "txtDoanhThu";
-            this.txtDoanhThu.Size = new System.Drawing.Size(143, 29);
+            this.txtDoanhThu.Size = new System.Drawing.Size(200, 29);
             this.txtDoanhThu.TabIndex = 21;
             // 
             // pictureBox2
@@ -297,11 +265,11 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(120, 10);
+            this.label3.Location = new System.Drawing.Point(87, 10);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(96, 23);
+            this.label3.Size = new System.Drawing.Size(141, 23);
             this.label3.TabIndex = 0;
-            this.label3.Text = "Revenue";
+            this.label3.Text = "Total revenue";
             // 
             // panel3
             // 
@@ -355,18 +323,84 @@
             this.label5.TabIndex = 21;
             this.label5.Text = "to";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(160)))));
+            this.label6.Location = new System.Drawing.Point(18, 564);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(304, 23);
+            this.label6.TabIndex = 22;
+            this.label6.Text = "Thống kê theo khoảng thời gian";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(160)))));
+            this.label7.Location = new System.Drawing.Point(18, 605);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(139, 23);
+            this.label7.TabIndex = 23;
+            this.label7.Text = "Sách đã bán";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(160)))));
+            this.label8.Location = new System.Drawing.Point(18, 646);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(113, 23);
+            this.label8.TabIndex = 24;
+            this.label8.Text = "Doanh thu";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(160)))));
+            this.label9.Location = new System.Drawing.Point(18, 684);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(115, 23);
+            this.label9.TabIndex = 25;
+            this.label9.Text = "Số hóa đơn";
+            // 
+            // txtSachBan_TG
+            // 
+            this.txtSachBan_TG.Location = new System.Drawing.Point(164, 602);
+            this.txtSachBan_TG.Name = "txtSachBan_TG";
+            this.txtSachBan_TG.Size = new System.Drawing.Size(336, 32);
+            this.txtSachBan_TG.TabIndex = 26;
+            // 
+            // txtDoanhThu_TG
+            // 
+            this.txtDoanhThu_TG.Location = new System.Drawing.Point(164, 643);
+            this.txtDoanhThu_TG.Name = "txtDoanhThu_TG";
+            this.txtDoanhThu_TG.Size = new System.Drawing.Size(336, 32);
+            this.txtDoanhThu_TG.TabIndex = 27;
+            // 
+            // txtHoaDon_TG
+            // 
+            this.txtHoaDon_TG.Location = new System.Drawing.Point(164, 681);
+            this.txtHoaDon_TG.Name = "txtHoaDon_TG";
+            this.txtHoaDon_TG.Size = new System.Drawing.Size(336, 32);
+            this.txtHoaDon_TG.TabIndex = 28;
+            // 
             // UC_ManageRevenue
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.txtHoaDon_TG);
+            this.Controls.Add(this.txtDoanhThu_TG);
+            this.Controls.Add(this.txtSachBan_TG);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnStatistic);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.cbbNVBanHang);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.dtpFrom);
             this.Controls.Add(this.dtpTo);
@@ -394,10 +428,8 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.DateTimePicker dtpTo;
         private System.Windows.Forms.DateTimePicker dtpFrom;
-        private System.Windows.Forms.Button btnStatistic;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbbNVBanHang;
         private System.Windows.Forms.RadioButton rbtnLinhVuc;
         private System.Windows.Forms.RadioButton rbtnLoaiSach;
         private System.Windows.Forms.RadioButton rbtnSach;
@@ -416,5 +448,12 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtSachBan_TG;
+        private System.Windows.Forms.TextBox txtDoanhThu_TG;
+        private System.Windows.Forms.TextBox txtHoaDon_TG;
     }
 }

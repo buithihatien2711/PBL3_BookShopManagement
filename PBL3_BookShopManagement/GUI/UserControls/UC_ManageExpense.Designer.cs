@@ -33,9 +33,8 @@
             this.rbtnTheoLinhVuc = new System.Windows.Forms.RadioButton();
             this.rbtnTheoLoaiSach = new System.Windows.Forms.RadioButton();
             this.rbtnTheoSach = new System.Windows.Forms.RadioButton();
-            this.rbtThuKho = new System.Windows.Forms.RadioButton();
-            this.rbtTongHop = new System.Windows.Forms.RadioButton();
-            this.btnStatistic = new System.Windows.Forms.Button();
+            this.rbtnThuKho = new System.Windows.Forms.RadioButton();
+            this.rbtnTongHop = new System.Windows.Forms.RadioButton();
             this.dtpFrom = new System.Windows.Forms.DateTimePicker();
             this.dtpTo = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
@@ -48,6 +47,11 @@
             this.txtChiPhi = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtSachMua_TG = new System.Windows.Forms.TextBox();
+            this.txtChiPhi_TG = new System.Windows.Forms.TextBox();
             this.panel5.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -62,9 +66,8 @@
             this.panel5.Controls.Add(this.rbtnTheoLinhVuc);
             this.panel5.Controls.Add(this.rbtnTheoLoaiSach);
             this.panel5.Controls.Add(this.rbtnTheoSach);
-            this.panel5.Controls.Add(this.rbtThuKho);
-            this.panel5.Controls.Add(this.rbtTongHop);
-            this.panel5.Controls.Add(this.btnStatistic);
+            this.panel5.Controls.Add(this.rbtnThuKho);
+            this.panel5.Controls.Add(this.rbtnTongHop);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
@@ -82,6 +85,7 @@
             this.rbtnTheoLinhVuc.TabStop = true;
             this.rbtnTheoLinhVuc.Text = "Theo lĩnh vực";
             this.rbtnTheoLinhVuc.UseVisualStyleBackColor = true;
+            this.rbtnTheoLinhVuc.CheckedChanged += new System.EventHandler(this.rbtnTheoLinhVuc_CheckedChanged);
             // 
             // rbtnTheoLoaiSach
             // 
@@ -94,6 +98,7 @@
             this.rbtnTheoLoaiSach.TabStop = true;
             this.rbtnTheoLoaiSach.Text = "Theo loai sach";
             this.rbtnTheoLoaiSach.UseVisualStyleBackColor = true;
+            this.rbtnTheoLoaiSach.CheckedChanged += new System.EventHandler(this.rbtnTheoLoaiSach_CheckedChanged);
             // 
             // rbtnTheoSach
             // 
@@ -106,47 +111,33 @@
             this.rbtnTheoSach.TabStop = true;
             this.rbtnTheoSach.Text = "Theo sách";
             this.rbtnTheoSach.UseVisualStyleBackColor = true;
+            this.rbtnTheoSach.CheckedChanged += new System.EventHandler(this.rbtnTheoSach_CheckedChanged);
             // 
-            // rbtThuKho
+            // rbtnThuKho
             // 
-            this.rbtThuKho.AutoSize = true;
-            this.rbtThuKho.ForeColor = System.Drawing.Color.White;
-            this.rbtThuKho.Location = new System.Drawing.Point(221, 13);
-            this.rbtThuKho.Name = "rbtThuKho";
-            this.rbtThuKho.Size = new System.Drawing.Size(152, 27);
-            this.rbtThuKho.TabIndex = 16;
-            this.rbtThuKho.TabStop = true;
-            this.rbtThuKho.Text = "Theo thủ kho";
-            this.rbtThuKho.UseVisualStyleBackColor = true;
+            this.rbtnThuKho.AutoSize = true;
+            this.rbtnThuKho.ForeColor = System.Drawing.Color.White;
+            this.rbtnThuKho.Location = new System.Drawing.Point(221, 13);
+            this.rbtnThuKho.Name = "rbtnThuKho";
+            this.rbtnThuKho.Size = new System.Drawing.Size(152, 27);
+            this.rbtnThuKho.TabIndex = 16;
+            this.rbtnThuKho.TabStop = true;
+            this.rbtnThuKho.Text = "Theo thủ kho";
+            this.rbtnThuKho.UseVisualStyleBackColor = true;
+            this.rbtnThuKho.CheckedChanged += new System.EventHandler(this.rbtnThuKho_CheckedChanged);
             // 
-            // rbtTongHop
+            // rbtnTongHop
             // 
-            this.rbtTongHop.AutoSize = true;
-            this.rbtTongHop.ForeColor = System.Drawing.Color.White;
-            this.rbtTongHop.Location = new System.Drawing.Point(9, 13);
-            this.rbtTongHop.Name = "rbtTongHop";
-            this.rbtTongHop.Size = new System.Drawing.Size(203, 27);
-            this.rbtTongHop.TabIndex = 15;
-            this.rbtTongHop.TabStop = true;
-            this.rbtTongHop.Text = "Báo cáo tổng hợp";
-            this.rbtTongHop.UseVisualStyleBackColor = true;
-            // 
-            // btnStatistic
-            // 
-            this.btnStatistic.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnStatistic.FlatAppearance.BorderSize = 0;
-            this.btnStatistic.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
-            this.btnStatistic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStatistic.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStatistic.ForeColor = System.Drawing.Color.White;
-            this.btnStatistic.Location = new System.Drawing.Point(867, -8);
-            this.btnStatistic.Name = "btnStatistic";
-            this.btnStatistic.Size = new System.Drawing.Size(118, 48);
-            this.btnStatistic.TabIndex = 14;
-            this.btnStatistic.Text = "Statistic";
-            this.btnStatistic.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnStatistic.UseVisualStyleBackColor = true;
-            this.btnStatistic.Click += new System.EventHandler(this.btnStatistic_Click);
+            this.rbtnTongHop.AutoSize = true;
+            this.rbtnTongHop.ForeColor = System.Drawing.Color.White;
+            this.rbtnTongHop.Location = new System.Drawing.Point(9, 13);
+            this.rbtnTongHop.Name = "rbtnTongHop";
+            this.rbtnTongHop.Size = new System.Drawing.Size(203, 27);
+            this.rbtnTongHop.TabIndex = 15;
+            this.rbtnTongHop.TabStop = true;
+            this.rbtnTongHop.Text = "Báo cáo tổng hợp";
+            this.rbtnTongHop.UseVisualStyleBackColor = true;
+            this.rbtnTongHop.CheckedChanged += new System.EventHandler(this.rbtnTongHop_CheckedChanged);
             // 
             // dtpFrom
             // 
@@ -154,6 +145,7 @@
             this.dtpFrom.Name = "dtpFrom";
             this.dtpFrom.Size = new System.Drawing.Size(364, 32);
             this.dtpFrom.TabIndex = 10;
+            this.dtpFrom.ValueChanged += new System.EventHandler(this.dtpFrom_ValueChanged);
             // 
             // dtpTo
             // 
@@ -161,6 +153,7 @@
             this.dtpTo.Name = "dtpTo";
             this.dtpTo.Size = new System.Drawing.Size(367, 32);
             this.dtpTo.TabIndex = 11;
+            this.dtpTo.ValueChanged += new System.EventHandler(this.dtpTo_ValueChanged);
             // 
             // label1
             // 
@@ -241,9 +234,9 @@
             this.txtChiPhi.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtChiPhi.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtChiPhi.ForeColor = System.Drawing.Color.White;
-            this.txtChiPhi.Location = new System.Drawing.Point(133, 48);
+            this.txtChiPhi.Location = new System.Drawing.Point(86, 48);
             this.txtChiPhi.Name = "txtChiPhi";
-            this.txtChiPhi.Size = new System.Drawing.Size(100, 29);
+            this.txtChiPhi.Size = new System.Drawing.Size(202, 29);
             this.txtChiPhi.TabIndex = 14;
             // 
             // label3
@@ -251,7 +244,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(142, 12);
+            this.label3.Location = new System.Drawing.Point(82, 12);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(91, 23);
             this.label3.TabIndex = 14;
@@ -259,18 +252,65 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(18, 200);
+            this.dataGridView1.Location = new System.Drawing.Point(9, 191);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1272, 479);
+            this.dataGridView1.Size = new System.Drawing.Size(1272, 384);
             this.dataGridView1.TabIndex = 15;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(30, 624);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(133, 23);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "Số sách mua";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(30, 660);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(78, 23);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "Chi phí";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(30, 578);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(304, 23);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "Thống kê theo khoảng thời gian";
+            // 
+            // txtSachMua_TG
+            // 
+            this.txtSachMua_TG.Location = new System.Drawing.Point(180, 619);
+            this.txtSachMua_TG.Name = "txtSachMua_TG";
+            this.txtSachMua_TG.Size = new System.Drawing.Size(343, 32);
+            this.txtSachMua_TG.TabIndex = 19;
+            // 
+            // txtChiPhi_TG
+            // 
+            this.txtChiPhi_TG.Location = new System.Drawing.Point(180, 657);
+            this.txtChiPhi_TG.Name = "txtChiPhi_TG";
+            this.txtChiPhi_TG.Size = new System.Drawing.Size(343, 32);
+            this.txtChiPhi_TG.TabIndex = 20;
             // 
             // UC_ManageExpense
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.txtChiPhi_TG);
+            this.Controls.Add(this.txtSachMua_TG);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -297,11 +337,10 @@
 
         #endregion
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Button btnStatistic;
-        private System.Windows.Forms.RadioButton rbtTongHop;
+        private System.Windows.Forms.RadioButton rbtnTongHop;
         private System.Windows.Forms.RadioButton rbtnTheoLoaiSach;
         private System.Windows.Forms.RadioButton rbtnTheoSach;
-        private System.Windows.Forms.RadioButton rbtThuKho;
+        private System.Windows.Forms.RadioButton rbtnThuKho;
         private System.Windows.Forms.DateTimePicker dtpFrom;
         private System.Windows.Forms.DateTimePicker dtpTo;
         private System.Windows.Forms.Label label1;
@@ -315,5 +354,10 @@
         private System.Windows.Forms.TextBox txtChiPhi;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtSachMua_TG;
+        private System.Windows.Forms.TextBox txtChiPhi_TG;
     }
 }

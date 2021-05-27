@@ -28,10 +28,6 @@ namespace PBL3_BookShopManagement.BLL
         {
             return DAL_ThongKe.Instance.GetHoaDon_DAL(dateFrom, dateTo);
         }
-        public DataTable GetNhatKiNhapKho_BLL(DateTime dateFrom, DateTime dateTo)
-        {
-            return DAL_ThongKe.Instance.GetNhatKiNhapKho_DAL(dateFrom, dateTo);
-        }
         public int GetSoLuongHoaDon_BLL()
         {
             return DAL_ThongKe.Instance.GetSoLuongHoaDon_DAL();
@@ -59,6 +55,54 @@ namespace PBL3_BookShopManagement.BLL
         public DataTable GetDoanhThuTheoLinhVuc_BLL(DateTime dateFrom, DateTime dateTo)
         {
             return DAL_ThongKe.Instance.GetDoanhThuTheoLinhVuc_DAL(dateFrom, dateTo);
+        }
+        public decimal GetChiPhi_BLL()
+        {
+            return DAL_ThongKe.Instance.GetChiPhi_DAL();
+        }
+        public int GetSoLuongSachMua_BLL()
+        {
+            return DAL_ThongKe.Instance.GetSoLuongSachMua_DAL();
+        }
+        public DataTable GetNhatKiNhapKho_BLL(DateTime dateFrom, DateTime dateTo)
+        {
+            return DAL_ThongKe.Instance.GetNhatKiNhapKho_DAL(dateFrom, dateTo);
+        }
+        public DataTable GetChiPhiTheoNhanVien_BLL(DateTime dateFrom, DateTime dateTo)
+        {
+            return DAL_ThongKe.Instance.GetChiPhiTheoNhanVien_DAL(dateFrom, dateTo);
+        }
+        public DataTable GetChiPhiTheoTenSach_BLL(DateTime dateFrom, DateTime dateTo)
+        {
+            return DAL_ThongKe.Instance.GetChiPhiTheoTenSach_DAL(dateFrom, dateTo);
+        }
+        public DataTable GetChiPhiTheoLoaiSach_BLL(DateTime dateFrom, DateTime dateTo)
+        {
+            return DAL_ThongKe.Instance.GetChiPhiTheoLoaiSach_DAL(dateFrom, dateTo);
+        }
+        public DataTable GetChiPhiTheoLinhVuc_BLL(DateTime dateFrom, DateTime dateTo)
+        {
+            return DAL_ThongKe.Instance.GetChiPhiTheoLinhVuc_DAL(dateFrom, dateTo);
+        }
+        public int GetSoSachBan_TG_BLL(DateTime dateFrom, DateTime dateTo)
+        {
+            return DAL_ThongKe.Instance.GetSoSachBan_TG_DAL(dateFrom, dateTo);
+        }
+        public int GetSoHoaDon_TG_BLL(DateTime dateFrom, DateTime dateTo)
+        {
+            return DAL_ThongKe.Instance.GetSoHoaDon_TG_DAL(dateFrom, dateTo);
+        }
+        public decimal GetTongTienMua_TG_BLL(DateTime dateFrom, DateTime dateTo)
+        {
+            return DAL_ThongKe.Instance.GetTongTienMua_TG_DAL(dateFrom, dateTo);
+        }
+        public int GetSoSachMua_TG_BLL(DateTime dateFrom, DateTime dateTo)
+        {
+            return DAL_ThongKe.Instance.GetSoSachMua_TG_DAL(dateFrom, dateTo);
+        }
+        public decimal GetTongTienBan_TG_BLL(DateTime dateFrom, DateTime dateTo)
+        {
+            return DAL_ThongKe.Instance.GetTongTienBan_TG_DAL(dateFrom, dateTo);
         }
     }
 }
