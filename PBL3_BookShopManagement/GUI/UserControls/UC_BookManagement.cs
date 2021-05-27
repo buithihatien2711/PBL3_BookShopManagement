@@ -19,31 +19,33 @@ namespace PBL3_BookShopManagement.GUI.UserControls
         {
             InitializeComponent();
 
-            ////Tạo watermark cho txtSearch
-            //txtSearch.ForeColor = Color.LightGray;
-            //txtSearch.Text = "Enter Name Book";
-            //txtSearch.Leave += new System.EventHandler(this.txtSearch_Leave);
-            //txtSearch.Enter += new System.EventHandler(this.txtSearch_Enter);
+            Show("", "All", "All");
+
+            //Tạo watermark cho txtSearch
+            txtSearch.ForeColor = Color.LightGray;
+            txtSearch.Text = "Enter Name Book";
+            txtSearch.Leave += new System.EventHandler(this.txtSearch_Leave);
+            txtSearch.Enter += new System.EventHandler(this.txtSearch_Enter);
             cbbLoaiSach.SelectedIndex = 0;
             cbbLinhVuc.SelectedIndex = 0;
         }
-        //private void txtSearch_Leave(object sender, EventArgs e)
-        //{
-        //    if (txtSearch.Text == "")
-        //    {
-        //        txtSearch.Text = "Enter Name Book";
-        //        txtSearch.ForeColor = Color.Gray;
-        //    }
-        //}
+        private void txtSearch_Leave(object sender, EventArgs e)
+        {
+            if (txtSearch.Text == "")
+            {
+                txtSearch.Text = "Enter Name Book";
+                txtSearch.ForeColor = Color.Gray;
+            }
+        }
 
-        //private void txtSearch_Enter(object sender, EventArgs e)
-        //{
-        //    if (txtSearch.Text == "Enter Name Book")
-        //    {
-        //        txtSearch.Text = "";
-        //        txtSearch.ForeColor = Color.Black;
-        //    }
-        //}
+        private void txtSearch_Enter(object sender, EventArgs e)
+        {
+            if (txtSearch.Text == "Enter Name Book")
+            {
+                txtSearch.Text = "";
+                txtSearch.ForeColor = Color.Black;
+            }
+        }
 
         private void button2_Click(object sender, EventArgs e)
         {

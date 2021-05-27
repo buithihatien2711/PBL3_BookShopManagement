@@ -149,7 +149,7 @@
             this.btnDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnDel.Location = new System.Drawing.Point(404, 410);
+            this.btnDel.Location = new System.Drawing.Point(380, 410);
             this.btnDel.Name = "btnDel";
             this.btnDel.Size = new System.Drawing.Size(105, 47);
             this.btnDel.TabIndex = 14;
@@ -163,7 +163,7 @@
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnSearch.Location = new System.Drawing.Point(931, 410);
+            this.btnSearch.Location = new System.Drawing.Point(929, 409);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(105, 47);
             this.btnSearch.TabIndex = 15;
@@ -177,7 +177,7 @@
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEdit.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnEdit.Location = new System.Drawing.Point(220, 410);
+            this.btnEdit.Location = new System.Drawing.Point(211, 410);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(105, 47);
             this.btnEdit.TabIndex = 16;
@@ -215,6 +215,7 @@
             // 
             // dataGridView2
             // 
+            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Location = new System.Drawing.Point(12, 31);
             this.dataGridView2.Name = "dataGridView2";
@@ -229,7 +230,7 @@
             this.btnSort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSort.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSort.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnSort.Location = new System.Drawing.Point(607, 410);
+            this.btnSort.Location = new System.Drawing.Point(574, 410);
             this.btnSort.Name = "btnSort";
             this.btnSort.Size = new System.Drawing.Size(105, 47);
             this.btnSort.TabIndex = 25;
@@ -246,14 +247,14 @@
             "Discount",
             "Price Before Discount",
             "Price After Discount"});
-            this.cbbSort.Location = new System.Drawing.Point(718, 419);
+            this.cbbSort.Location = new System.Drawing.Point(685, 419);
             this.cbbSort.Name = "cbbSort";
             this.cbbSort.Size = new System.Drawing.Size(186, 31);
             this.cbbSort.TabIndex = 26;
             // 
             // txtSearchName
             // 
-            this.txtSearchName.Location = new System.Drawing.Point(1042, 419);
+            this.txtSearchName.Location = new System.Drawing.Point(1055, 418);
             this.txtSearchName.Name = "txtSearchName";
             this.txtSearchName.Size = new System.Drawing.Size(234, 32);
             this.txtSearchName.TabIndex = 27;
@@ -310,7 +311,7 @@
             this.btnShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnShow.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnShow.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnShow.Location = new System.Drawing.Point(35, 410);
+            this.btnShow.Location = new System.Drawing.Point(12, 410);
             this.btnShow.Name = "btnShow";
             this.btnShow.Size = new System.Drawing.Size(105, 47);
             this.btnShow.TabIndex = 28;

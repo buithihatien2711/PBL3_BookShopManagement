@@ -59,6 +59,7 @@
             this.txtSachBan_TG = new System.Windows.Forms.TextBox();
             this.txtDoanhThu_TG = new System.Windows.Forms.TextBox();
             this.txtHoaDon_TG = new System.Windows.Forms.TextBox();
+            this.btnDetail = new System.Windows.Forms.Button();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -367,27 +368,42 @@
             // 
             this.txtSachBan_TG.Location = new System.Drawing.Point(164, 602);
             this.txtSachBan_TG.Name = "txtSachBan_TG";
-            this.txtSachBan_TG.Size = new System.Drawing.Size(336, 32);
+            this.txtSachBan_TG.Size = new System.Drawing.Size(412, 32);
             this.txtSachBan_TG.TabIndex = 26;
             // 
             // txtDoanhThu_TG
             // 
             this.txtDoanhThu_TG.Location = new System.Drawing.Point(164, 643);
             this.txtDoanhThu_TG.Name = "txtDoanhThu_TG";
-            this.txtDoanhThu_TG.Size = new System.Drawing.Size(336, 32);
+            this.txtDoanhThu_TG.Size = new System.Drawing.Size(412, 32);
             this.txtDoanhThu_TG.TabIndex = 27;
             // 
             // txtHoaDon_TG
             // 
             this.txtHoaDon_TG.Location = new System.Drawing.Point(164, 681);
             this.txtHoaDon_TG.Name = "txtHoaDon_TG";
-            this.txtHoaDon_TG.Size = new System.Drawing.Size(336, 32);
+            this.txtHoaDon_TG.Size = new System.Drawing.Size(412, 32);
             this.txtHoaDon_TG.TabIndex = 28;
+            // 
+            // btnDetail
+            // 
+            this.btnDetail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnDetail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDetail.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDetail.ForeColor = System.Drawing.Color.White;
+            this.btnDetail.Location = new System.Drawing.Point(1094, 564);
+            this.btnDetail.Name = "btnDetail";
+            this.btnDetail.Size = new System.Drawing.Size(209, 49);
+            this.btnDetail.TabIndex = 29;
+            this.btnDetail.Text = "View invoice detail";
+            this.btnDetail.UseVisualStyleBackColor = false;
+            this.btnDetail.Click += new System.EventHandler(this.btnDetail_Click);
             // 
             // UC_ManageRevenue
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.Controls.Add(this.btnDetail);
             this.Controls.Add(this.txtHoaDon_TG);
             this.Controls.Add(this.txtDoanhThu_TG);
             this.Controls.Add(this.txtSachBan_TG);
@@ -455,5 +471,6 @@
         private System.Windows.Forms.TextBox txtSachBan_TG;
         private System.Windows.Forms.TextBox txtDoanhThu_TG;
         private System.Windows.Forms.TextBox txtHoaDon_TG;
+        private System.Windows.Forms.Button btnDetail;
     }
 }

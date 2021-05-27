@@ -18,40 +18,31 @@ namespace PBL3_BookShopManagement.GUI.UserControls
         {
             InitializeComponent();
 
-            //txtSearchName.ForeColor = Color.LightGray;
-            //txtSearchName.Text = "Enter Name Book";
-            //txtSearchName.Leave += new System.EventHandler(this.txtSearchName_Leave);
-            //txtSearchName.Enter += new System.EventHandler(this.txtSearchName_Enter);
+            Show("");
+
+            //Hàm tạo watermark
+            txtSearchName.ForeColor = Color.LightGray;
+            txtSearchName.Text = "Enter Name Book";
+            txtSearchName.Leave += new System.EventHandler(this.txtSearchName_Leave);
+            txtSearchName.Enter += new System.EventHandler(this.txtSearchName_Enter);
         }
 
-        //private void txtSearchName_Leave(object sender, EventArgs e)
-        //{
-        //    if (txtSearchName.Text == "")
-        //    {
-        //        txtSearchName.Text = "Enter Name Book";
-        //        txtSearchName.ForeColor = Color.Gray;
-        //    }
-        //}
-
-        //private void txtSearchName_Enter(object sender, EventArgs e)
-        //{
-        //    if (txtSearchName.Text == "Enter Name Book")
-        //    {
-        //        txtSearchName.Text = "";
-        //        txtSearchName.ForeColor = Color.Black;
-        //    }
-        //}
-
-        Random rand = new Random();
-
-        private void LoadChart()
+        private void txtSearchName_Leave(object sender, EventArgs e)
         {
-
+            if (txtSearchName.Text == "")
+            {
+                txtSearchName.Text = "Enter Name Book";
+                txtSearchName.ForeColor = Color.Gray;
+            }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void txtSearchName_Enter(object sender, EventArgs e)
         {
-            LoadChart();
+            if (txtSearchName.Text == "Enter Name Book")
+            {
+                txtSearchName.Text = "";
+                txtSearchName.ForeColor = Color.Black;
+            }
         }
 
         public void Show(string name)
@@ -175,27 +166,31 @@ namespace PBL3_BookShopManagement.GUI.UserControls
             if (cbbSort.SelectedIndex != -1)
             {
                 string sortBy = cbbSort.SelectedItem.ToString();
+                List<SachKMView> dt = new List<SachKMView>();
+                if (txtSearchName.Text == "Enter Name Book")
+                {
+                    dt = BLL_SachKhuyenMai.Instance.getListSachKMView_BLL("");
+                }
+                else
+                {
+                    dt = BLL_SachKhuyenMai.Instance.getListSachKMView_BLL(txtSearchName.Text);
+                }
                 switch (sortBy)
                 {
                     case "Book ID":
-                        dataGridView2.DataSource = BLL_SachKhuyenMai.Instance.
-                            getListSachKMView_BLL(txtSearchName.Text).OrderBy(o => o.MaSach).ToList();
+                        dataGridView2.DataSource = dt.OrderBy(o => o.MaSach).ToList();
                         break;
                     case "Title":
-                        dataGridView2.DataSource = BLL_SachKhuyenMai.Instance.
-                            getListSachKMView_BLL(txtSearchName.Text).OrderBy(o => o.TenSach).ToList();
+                        dataGridView2.DataSource = dt.OrderBy(o => o.TenSach).ToList();
                         break;
                     case "Discount":
-                        dataGridView2.DataSource = BLL_SachKhuyenMai.Instance.
-                            getListSachKMView_BLL(txtSearchName.Text).OrderBy(o => o.MucGiamGia).ToList();
+                        dataGridView2.DataSource = dt.OrderBy(o => o.MucGiamGia).ToList();
                         break;
                     case "Price Before Discount":
-                        dataGridView2.DataSource = BLL_SachKhuyenMai.Instance.
-                            getListSachKMView_BLL(txtSearchName.Text).OrderBy(o => o.GiaBia).ToList();
+                        dataGridView2.DataSource = dt.OrderBy(o => o.GiaBia).ToList();
                         break;
                     case "Price After Discount":
-                        dataGridView2.DataSource = BLL_SachKhuyenMai.Instance.
-                            getListSachKMView_BLL(txtSearchName.Text).OrderBy(o => o.GiaSauKM).ToList();
+                        dataGridView2.DataSource = dt.OrderBy(o => o.GiaSauKM).ToList();
                         break;
                 }
                 dataGridView2.Columns[0].HeaderText = "Book ID";
@@ -212,7 +207,14 @@ namespace PBL3_BookShopManagement.GUI.UserControls
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            Show(txtSearchName.Text);
+            if(txtSearchName.Text == "Enter Name Book")
+            {
+                dataGridView2.DataSource = BLL_SachKhuyenMai.Instance.getListSachKMView_BLL("");
+            }
+            else
+            {
+                dataGridView2.DataSource = BLL_SachKhuyenMai.Instance.getListSachKMView_BLL(txtSearchName.Text);
+            }
         }
     }
 }

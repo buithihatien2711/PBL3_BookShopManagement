@@ -18,8 +18,13 @@ namespace PBL3_BookShopManagement.GUI.UserControls
         public UC_ManageUser()
         {
             InitializeComponent();
+
             SetCBB(cbbRole, false);
             SetCBB(cbbShow, true);
+
+            Show(null, 0);
+
+            //Hàm tạo watermark 
             txtSearchName.ForeColor = Color.LightGray;
             txtSearchName.Text = "Enter Name Staff";
             txtSearchName.Leave += new System.EventHandler(this.txtSearchName_Leave);
@@ -30,7 +35,7 @@ namespace PBL3_BookShopManagement.GUI.UserControls
 
         private void txtSearchName_Leave(object sender, EventArgs e)
         {
-            if(txtSearchName.Text == "")
+            if (txtSearchName.Text == "")
             {
                 txtSearchName.Text = "Enter Name Staff";
                 txtSearchName.ForeColor = Color.Gray;
@@ -39,7 +44,7 @@ namespace PBL3_BookShopManagement.GUI.UserControls
 
         private void txtSearchName_Enter(object sender, EventArgs e)
         {
-            if(txtSearchName.Text == "Enter Name Staff")
+            if (txtSearchName.Text == "Enter Name Staff")
             {
                 txtSearchName.Text = "";
                 txtSearchName.ForeColor = Color.Black;
@@ -57,6 +62,11 @@ namespace PBL3_BookShopManagement.GUI.UserControls
                 cbb.Items.Add(new CBBItem { Text = "All", Value = 0 });
             }
             cbb.Items.AddRange(BLL_Staff.Instance.getListCBBPosition().ToArray());
+        }
+
+        public void Show(string name, int idPos)
+        {
+            dataGridView1.DataSource = BLL_Staff.Instance.GetListStaffView_BLL(name, idPos);
         }
 
         private Staff GetStaff()
@@ -114,9 +124,7 @@ namespace PBL3_BookShopManagement.GUI.UserControls
 
         private void btnShow_Click(object sender, EventArgs e)
         {
-            //dataGridView1.DataSource = BLL_BookshopManagement.Instance.GetListStaffView_BLL(null, ((CBBItem)(cbbShow.SelectedItem)).Value);
-            //dataGridView1.DataSource = BLL_BookshopManagement.Instance.GetAllAcount_BLL();
-            dataGridView1.DataSource = DAL_Staff.Instance.GetListStaffViewbyIDPos_DAL(((CBBItem)(cbbShow.SelectedItem)).Value, null);
+            Show(null, ((CBBItem)(cbbShow.SelectedItem)).Value);
         }
 
         private void SetDetail(Staff staff, Account account)
@@ -198,23 +206,37 @@ namespace PBL3_BookShopManagement.GUI.UserControls
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = BLL_Staff.Instance.GetListStaffView_BLL(txtSearchName.Text, ((CBBItem)(cbbShow.SelectedItem)).Value);
+            if(txtSearchName.Text == "Enter Name Staff")
+            {
+                Show(null, ((CBBItem)(cbbShow.SelectedItem)).Value);
+            }
+            else
+            {
+                Show(txtSearchName.Text, ((CBBItem)(cbbShow.SelectedItem)).Value);
+            }
         }
 
         private void btnSort_Click(object sender, EventArgs e)
         {
             if (cbbSort.SelectedIndex != -1)
             {
+                List<StaffView> list = new List<StaffView>();
+                if(txtSearchName.Text == "Enter Name Staff")
+                {
+                    list = BLL_Staff.Instance.GetListStaffView_BLL(null, ((CBBItem)(cbbShow.SelectedItem)).Value);
+                }
+                else
+                {
+                    list = BLL_Staff.Instance.GetListStaffView_BLL(txtSearchName.Text, ((CBBItem)(cbbShow.SelectedItem)).Value);
+                }
                 string sortBy = cbbSort.SelectedItem.ToString();
                 switch (sortBy)
                 {
                     case "ID Staff":
-                        dataGridView1.DataSource = BLL_Staff.Instance.
-                            GetListStaffView_BLL(null, ((CBBItem)(cbbShow.SelectedItem)).Value).OrderBy(o => o.ID_Staff).ToList();
+                        dataGridView1.DataSource = list.OrderBy(o => o.ID_Staff).ToList();
                         break;
                     case "Name Staff":
-                        dataGridView1.DataSource = BLL_Staff.Instance.
-                            GetListStaffView_BLL(null, ((CBBItem)(cbbShow.SelectedItem)).Value).OrderBy(o => o.Name_Staff).ToList();
+                        dataGridView1.DataSource = list.OrderBy(o => o.Name_Staff).ToList();
                         break;
                 }
             }

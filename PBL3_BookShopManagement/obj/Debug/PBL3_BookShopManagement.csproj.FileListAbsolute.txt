@@ -42,3 +42,4 @@ D:\PBL3\PBL3_BookShopManagement\obj\Debug\PBL3_BookShopManagement.GUI.UserContro
 D:\PBL3\PBL3_BookShopManagement\obj\Debug\PBL3_BookShopManagement.GUI.UserControls.UC_ManageUser.resources
 D:\PBL3\PBL3_BookShopManagement\obj\Debug\PBL3_BookShopManagement.GUI.Forms.Form_AddNewUser.resources
 D:\PBL3\PBL3_BookShopManagement\obj\Debug\PBL3_BookShopManagement.GUI.Forms.Form_BookDetail.resources
+D:\PBL3\PBL3_BookShopManagement\obj\Debug\PBL3_BookShopManagement.GUI.Forms.Form_InvoiceDetail.resources

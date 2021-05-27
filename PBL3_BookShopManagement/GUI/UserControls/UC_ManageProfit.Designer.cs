@@ -33,10 +33,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtVon = new System.Windows.Forms.TextBox();
+            this.txtDoanhThu = new System.Windows.Forms.TextBox();
+            this.txtChiPhi = new System.Windows.Forms.TextBox();
+            this.txtLai = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // panel1
@@ -87,43 +87,43 @@
             this.label4.TabIndex = 4;
             this.label4.Text = "Profit";
             // 
-            // textBox1
+            // txtVon
             // 
-            this.textBox1.Location = new System.Drawing.Point(280, 118);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(803, 32);
-            this.textBox1.TabIndex = 5;
+            this.txtVon.Location = new System.Drawing.Point(280, 118);
+            this.txtVon.Name = "txtVon";
+            this.txtVon.Size = new System.Drawing.Size(803, 32);
+            this.txtVon.TabIndex = 5;
             // 
-            // textBox2
+            // txtDoanhThu
             // 
-            this.textBox2.Location = new System.Drawing.Point(280, 192);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(803, 32);
-            this.textBox2.TabIndex = 6;
+            this.txtDoanhThu.Location = new System.Drawing.Point(280, 192);
+            this.txtDoanhThu.Name = "txtDoanhThu";
+            this.txtDoanhThu.Size = new System.Drawing.Size(803, 32);
+            this.txtDoanhThu.TabIndex = 6;
             // 
-            // textBox3
+            // txtChiPhi
             // 
-            this.textBox3.Location = new System.Drawing.Point(280, 276);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(803, 32);
-            this.textBox3.TabIndex = 7;
+            this.txtChiPhi.Location = new System.Drawing.Point(280, 276);
+            this.txtChiPhi.Name = "txtChiPhi";
+            this.txtChiPhi.Size = new System.Drawing.Size(803, 32);
+            this.txtChiPhi.TabIndex = 7;
             // 
-            // textBox4
+            // txtLai
             // 
-            this.textBox4.Location = new System.Drawing.Point(280, 358);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(803, 32);
-            this.textBox4.TabIndex = 8;
+            this.txtLai.Location = new System.Drawing.Point(280, 358);
+            this.txtLai.Name = "txtLai";
+            this.txtLai.Size = new System.Drawing.Size(803, 32);
+            this.txtLai.TabIndex = 8;
             // 
             // UC_ManageProfit
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtLai);
+            this.Controls.Add(this.txtChiPhi);
+            this.Controls.Add(this.txtDoanhThu);
+            this.Controls.Add(this.txtVon);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -145,9 +145,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtVon;
+        private System.Windows.Forms.TextBox txtDoanhThu;
+        private System.Windows.Forms.TextBox txtChiPhi;
+        private System.Windows.Forms.TextBox txtLai;
     }
 }

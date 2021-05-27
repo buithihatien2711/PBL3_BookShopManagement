@@ -40,7 +40,7 @@
             this.btnBookManagement = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.button8 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -50,12 +50,10 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timerTime = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.labelTime = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panelControls = new System.Windows.Forms.Panel();
             this.panelLeft.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -79,7 +77,7 @@
             this.panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelLeft.Location = new System.Drawing.Point(0, 0);
             this.panelLeft.Name = "panelLeft";
-            this.panelLeft.Size = new System.Drawing.Size(215, 682);
+            this.panelLeft.Size = new System.Drawing.Size(215, 720);
             this.panelLeft.TabIndex = 0;
             // 
             // btnDiscount
@@ -212,7 +210,6 @@
             // panel3
             // 
             this.panel3.Controls.Add(this.panel1);
-            this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.button8);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.pictureBox1);
@@ -222,16 +219,12 @@
             this.panel3.Size = new System.Drawing.Size(215, 140);
             this.panel3.TabIndex = 0;
             // 
-            // label3
+            // panel1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(60, 99);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(143, 23);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Gilgit Pakistan";
+            this.panel1.Location = new System.Drawing.Point(215, 142);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(982, 578);
+            this.panel1.TabIndex = 2;
             // 
             // button8
             // 
@@ -257,9 +250,9 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(53, 76);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(169, 23);
+            this.label2.Size = new System.Drawing.Size(115, 23);
             this.label2.TabIndex = 0;
-            this.label2.Text = "North Books Shop";
+            this.label2.Text = "Books Shop";
             // 
             // pictureBox1
             // 
@@ -278,7 +271,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(215, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(992, 48);
+            this.panel4.Size = new System.Drawing.Size(985, 48);
             this.panel4.TabIndex = 0;
             // 
             // label4
@@ -288,9 +281,9 @@
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(160)))));
             this.label4.Location = new System.Drawing.Point(18, 18);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(354, 23);
+            this.label4.Size = new System.Drawing.Size(267, 23);
             this.label4.TabIndex = 0;
-            this.label4.Text = "North Books Shop, NLI Market Gilgit";
+            this.label4.Text = "Books Shop Management ";
             // 
             // button9
             // 
@@ -302,7 +295,7 @@
             this.button9.ForeColor = System.Drawing.Color.White;
             this.button9.Image = ((System.Drawing.Image)(resources.GetObject("button9.Image")));
             this.button9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button9.Location = new System.Drawing.Point(948, 0);
+            this.button9.Location = new System.Drawing.Point(941, 0);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(44, 48);
             this.button9.TabIndex = 2;
@@ -325,20 +318,9 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(69, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(110, 23);
+            this.label1.Size = new System.Drawing.Size(104, 23);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Welcome:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(165, 19);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(149, 23);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "SaLaaR HuSyN";
+            this.label1.Text = "Welcome";
             // 
             // labelTime
             // 
@@ -346,7 +328,7 @@
             this.labelTime.AutoSize = true;
             this.labelTime.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTime.ForeColor = System.Drawing.Color.White;
-            this.labelTime.Location = new System.Drawing.Point(883, 34);
+            this.labelTime.Location = new System.Drawing.Point(876, 34);
             this.labelTime.Name = "labelTime";
             this.labelTime.Size = new System.Drawing.Size(106, 23);
             this.labelTime.TabIndex = 0;
@@ -380,20 +362,13 @@
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.labelTime);
-            this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(215, 48);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(992, 92);
+            this.panel2.Size = new System.Drawing.Size(985, 92);
             this.panel2.TabIndex = 1;
             // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(215, 142);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(982, 578);
-            this.panel1.TabIndex = 2;
             // panelControls
             // 
             this.panelControls.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -449,10 +424,8 @@
         private System.Windows.Forms.Panel panelControls;
         private System.Windows.Forms.Button btnDoanhThu;
         private System.Windows.Forms.Button btnUsers;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnDiscount;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label labelTime;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;

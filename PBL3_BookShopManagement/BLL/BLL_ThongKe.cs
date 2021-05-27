@@ -104,5 +104,15 @@ namespace PBL3_BookShopManagement.BLL
         {
             return DAL_ThongKe.Instance.GetTongTienBan_TG_DAL(dateFrom, dateTo);
         }
+
+        public DataTable GetChiTietHoaDonbyMaHD_BLL(int MaHD)
+        {
+            return DAL_ThongKe.Instance.GetChiTietHoaDonbyMaHD_DAL(MaHD);
+        }
+
+        public DataTable GetHoaDonbyMaHD_BLL(int MaHD)
+        {
+            return DAL_ThongKe.Instance.GetHoaDonbyMaHD_DAL(MaHD);
+        }
     }
 }

@@ -46,6 +46,10 @@ select TenLinhVuc, SUM(SoLuong) as TongSoLuong, SUM(GiaBia*(1 - ChiTietHoaDon.Mu
 where ChiTietHoaDon.MaHoaDon = HoaDon.MaHoaDon and ChiTietHoaDon.MaSach = Sach.MaSach and ChiTietHoaDon.MaSach = ThongTinXuatBan.MaSach and NgayLap >= '01/01/2021' and NgayLap <= '01/31/2021'
 group by TenLinhVuc
 
+--Lấy ra chi tiết hóa đơn
+
+
+
 -----------------------THỐNG KÊ CHI PHÍ-------------------------------
 --Tổng sách mua
 select sum(SoLuong) from NhatKiNhapSach
@@ -91,3 +95,4 @@ select TenLoaiSach, SUM(SoLuong) as TongSachBan, SUM(GiaBia*(1 - ChiTietHoaDon.M
 where ChiTietHoaDon.MaSach = Sach.MaSach and ChiTietHoaDon.MaHoaDon = HoaDon.MaHoaDon and ChiTietHoaDon.MaSach = ThongTinXuatBan.MaSach and NgayLap >= '01/01/2021' and NgayLap <= '01/31/2021' group by TenLoaiSach
 
 
+select * from ChiTietHoaDon

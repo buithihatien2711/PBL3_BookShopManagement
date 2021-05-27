@@ -210,7 +210,7 @@
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.Location = new System.Drawing.Point(917, 10);
+            this.btnSearch.Location = new System.Drawing.Point(901, 11);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(128, 50);
             this.btnSearch.TabIndex = 2;
@@ -220,13 +220,14 @@
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(1061, 21);
+            this.txtSearch.Location = new System.Drawing.Point(1046, 20);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(198, 32);
             this.txtSearch.TabIndex = 1;
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(11, 66);
             this.dataGridView1.Name = "dataGridView1";

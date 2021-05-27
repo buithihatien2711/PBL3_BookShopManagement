@@ -380,6 +380,7 @@
             this.numGiaMua.Name = "numGiaMua";
             this.numGiaMua.Size = new System.Drawing.Size(234, 32);
             this.numGiaMua.TabIndex = 33;
+            this.numGiaMua.ThousandsSeparator = true;
             // 
             // Form_BookDetail
             // 

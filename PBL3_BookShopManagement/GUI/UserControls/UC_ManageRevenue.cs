@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PBL3_BookShopManagement.BLL;
+using PBL3_BookShopManagement.GUI.Forms;
 
 namespace PBL3_BookShopManagement.GUI.UserControls
 {
@@ -90,6 +91,7 @@ namespace PBL3_BookShopManagement.GUI.UserControls
             dataGridView1.Columns[2].HeaderText = "Date(month/day/year)";
             dataGridView1.Columns[3].HeaderText = "Total";
             dataGridView1.Columns[4].HeaderText = "ID Staff";
+            dataGridView1.Columns[5].HeaderText = "Name Staff";
         }
 
         public void ShowTheoNV(DateTime dateFrom, DateTime dateTo)
@@ -274,6 +276,16 @@ namespace PBL3_BookShopManagement.GUI.UserControls
             txtSachBan_TG.Text = BLL_ThongKe.Instance.GetSoSachBan_TG_BLL(dtpFrom.Value, dtpTo.Value).ToString();
             txtDoanhThu_TG.Text = string.Format("{0:#,##0.00}", BLL_ThongKe.Instance.GetTongTienBan_TG_BLL(dtpFrom.Value, dtpTo.Value));
             txtHoaDon_TG.Text = BLL_ThongKe.Instance.GetSoHoaDon_TG_BLL(dtpFrom.Value, dtpTo.Value).ToString();
+        }
+
+        private void btnDetail_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                int MaHD = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["MaHoaDon"].Value);
+                Form_InvoiceDetail f = new Form_InvoiceDetail(MaHD);
+                f.Show();
+            }
         }
     }
 }

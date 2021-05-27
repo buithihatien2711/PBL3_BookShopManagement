@@ -53,7 +53,22 @@ namespace PBL3_BookShopManagement.DAL
         }
         public DataTable GetHoaDon_DAL(DateTime dateFrom, DateTime dateTo)
         {
-            string query = string.Format("select * from HoaDon where NgayLap >= '{0}' and NgayLap <= '{1}'", dateFrom, dateTo);
+            string query = string.Format("select MaHoaDon, TenKhachHang, NgayLap, TongTien, HoaDon.ID_Staff, Name_Staff from HoaDon, Staff " +
+                "where NgayLap >= '{0}' and NgayLap <= '{1}' and HoaDon.ID_Staff = Staff.ID_Staff", dateFrom, dateTo);
+            return DBHelper.Instance.GetRecord(query);
+        }
+        public DataTable GetHoaDonbyMaHD_DAL(int MaHD)
+        {
+            string query = string.Format("select MaHoaDon, TenKhachHang, NgayLap, TongTien, HoaDon.ID_Staff, Name_Staff from HoaDon, Staff " +
+                "where HoaDon.MaHoaDon = {0} and HoaDon.ID_Staff = Staff.ID_Staff", MaHD);
+            return DBHelper.Instance.GetRecord(query);
+        }
+        public DataTable GetChiTietHoaDonbyMaHD_DAL(int MaHD)
+        {
+            string query = string.Format("select ChiTietHoaDon.MaSach, TenSach, SoLuong, MucGiamGia, GiaBia, " +
+                "GiaBia * (1 - ChiTietHoaDon.MucGiamGia / 100) as GiaBan, GiaBia * (1 - ChiTietHoaDon.MucGiamGia / 100) * SoLuong as TongTienBan " +
+                "from ChiTietHoaDon, Sach, ThongTinXuatBan where ChiTietHoaDon.MaSach = Sach.MaSach and ChiTietHoaDon.MaSach = ThongTinXuatBan.MaSach " +
+                "and ChiTietHoaDon.MaHoaDon = {0}", MaHD);
             return DBHelper.Instance.GetRecord(query);
         }
         public DataTable GetDoanhThuTheoNhanVien_DAL(DateTime dateFrom, DateTime dateTo)
