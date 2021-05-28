@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Dashboard_Admin));
             this.panelLeft = new System.Windows.Forms.Panel();
+            this.btnWarehouse = new System.Windows.Forms.Button();
             this.btnDiscount = new System.Windows.Forms.Button();
             this.btnViewSales = new System.Windows.Forms.Button();
             this.btnDoanhThu = new System.Windows.Forms.Button();
@@ -65,6 +66,7 @@
             // panelLeft
             // 
             this.panelLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(160)))));
+            this.panelLeft.Controls.Add(this.btnWarehouse);
             this.panelLeft.Controls.Add(this.btnDiscount);
             this.panelLeft.Controls.Add(this.btnViewSales);
             this.panelLeft.Controls.Add(this.btnDoanhThu);
@@ -77,8 +79,25 @@
             this.panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelLeft.Location = new System.Drawing.Point(0, 0);
             this.panelLeft.Name = "panelLeft";
-            this.panelLeft.Size = new System.Drawing.Size(215, 720);
+            this.panelLeft.Size = new System.Drawing.Size(215, 767);
             this.panelLeft.TabIndex = 0;
+            // 
+            // btnWarehouse
+            // 
+            this.btnWarehouse.FlatAppearance.BorderSize = 0;
+            this.btnWarehouse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnWarehouse.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnWarehouse.ForeColor = System.Drawing.Color.White;
+            this.btnWarehouse.Image = ((System.Drawing.Image)(resources.GetObject("btnWarehouse.Image")));
+            this.btnWarehouse.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnWarehouse.Location = new System.Drawing.Point(12, 448);
+            this.btnWarehouse.Name = "btnWarehouse";
+            this.btnWarehouse.Size = new System.Drawing.Size(203, 60);
+            this.btnWarehouse.TabIndex = 5;
+            this.btnWarehouse.Text = "     Warehouse ";
+            this.btnWarehouse.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnWarehouse.UseVisualStyleBackColor = true;
+            this.btnWarehouse.Click += new System.EventHandler(this.btnWarehouse_Click);
             // 
             // btnDiscount
             // 
@@ -88,7 +107,7 @@
             this.btnDiscount.ForeColor = System.Drawing.Color.White;
             this.btnDiscount.Image = ((System.Drawing.Image)(resources.GetObject("btnDiscount.Image")));
             this.btnDiscount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDiscount.Location = new System.Drawing.Point(11, 612);
+            this.btnDiscount.Location = new System.Drawing.Point(12, 370);
             this.btnDiscount.Name = "btnDiscount";
             this.btnDiscount.Size = new System.Drawing.Size(203, 60);
             this.btnDiscount.TabIndex = 4;
@@ -105,7 +124,7 @@
             this.btnViewSales.ForeColor = System.Drawing.Color.White;
             this.btnViewSales.Image = ((System.Drawing.Image)(resources.GetObject("btnViewSales.Image")));
             this.btnViewSales.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnViewSales.Location = new System.Drawing.Point(12, 452);
+            this.btnViewSales.Location = new System.Drawing.Point(9, 695);
             this.btnViewSales.Name = "btnViewSales";
             this.btnViewSales.Size = new System.Drawing.Size(203, 60);
             this.btnViewSales.TabIndex = 2;
@@ -122,7 +141,7 @@
             this.btnDoanhThu.ForeColor = System.Drawing.Color.White;
             this.btnDoanhThu.Image = ((System.Drawing.Image)(resources.GetObject("btnDoanhThu.Image")));
             this.btnDoanhThu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDoanhThu.Location = new System.Drawing.Point(11, 366);
+            this.btnDoanhThu.Location = new System.Drawing.Point(12, 611);
             this.btnDoanhThu.Name = "btnDoanhThu";
             this.btnDoanhThu.Size = new System.Drawing.Size(203, 60);
             this.btnDoanhThu.TabIndex = 3;
@@ -139,7 +158,7 @@
             this.btnChiPhi.ForeColor = System.Drawing.Color.White;
             this.btnChiPhi.Image = ((System.Drawing.Image)(resources.GetObject("btnChiPhi.Image")));
             this.btnChiPhi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnChiPhi.Location = new System.Drawing.Point(12, 284);
+            this.btnChiPhi.Location = new System.Drawing.Point(12, 529);
             this.btnChiPhi.Name = "btnChiPhi";
             this.btnChiPhi.Size = new System.Drawing.Size(203, 60);
             this.btnChiPhi.TabIndex = 2;
@@ -164,7 +183,7 @@
             this.btnUsers.ForeColor = System.Drawing.Color.White;
             this.btnUsers.Image = ((System.Drawing.Image)(resources.GetObject("btnUsers.Image")));
             this.btnUsers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUsers.Location = new System.Drawing.Point(12, 530);
+            this.btnUsers.Location = new System.Drawing.Point(12, 294);
             this.btnUsers.Name = "btnUsers";
             this.btnUsers.Size = new System.Drawing.Size(203, 60);
             this.btnUsers.TabIndex = 2;
@@ -271,7 +290,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(215, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(985, 48);
+            this.panel4.Size = new System.Drawing.Size(1066, 48);
             this.panel4.TabIndex = 0;
             // 
             // label4
@@ -295,7 +314,7 @@
             this.button9.ForeColor = System.Drawing.Color.White;
             this.button9.Image = ((System.Drawing.Image)(resources.GetObject("button9.Image")));
             this.button9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button9.Location = new System.Drawing.Point(941, 0);
+            this.button9.Location = new System.Drawing.Point(1022, 0);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(44, 48);
             this.button9.TabIndex = 2;
@@ -328,7 +347,7 @@
             this.labelTime.AutoSize = true;
             this.labelTime.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTime.ForeColor = System.Drawing.Color.White;
-            this.labelTime.Location = new System.Drawing.Point(876, 34);
+            this.labelTime.Location = new System.Drawing.Point(957, 34);
             this.labelTime.Name = "labelTime";
             this.labelTime.Size = new System.Drawing.Size(106, 23);
             this.labelTime.TabIndex = 0;
@@ -366,7 +385,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(215, 48);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(985, 92);
+            this.panel2.Size = new System.Drawing.Size(1066, 92);
             this.panel2.TabIndex = 1;
             // 
             // panelControls
@@ -374,14 +393,14 @@
             this.panelControls.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControls.Location = new System.Drawing.Point(215, 140);
             this.panelControls.Name = "panelControls";
-            this.panelControls.Size = new System.Drawing.Size(985, 580);
+            this.panelControls.Size = new System.Drawing.Size(1066, 627);
             this.panelControls.TabIndex = 2;
             // 
             // Form_Dashboard_Admin
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1200, 720);
+            this.ClientSize = new System.Drawing.Size(1281, 767);
             this.Controls.Add(this.panelControls);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel4);
@@ -431,5 +450,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnWarehouse;
     }
 }

@@ -116,7 +116,7 @@
             this.txtIDBook.Location = new System.Drawing.Point(211, 28);
             this.txtIDBook.Name = "txtIDBook";
             this.txtIDBook.Size = new System.Drawing.Size(330, 32);
-            this.txtIDBook.TabIndex = 7;
+            this.txtIDBook.TabIndex = 1;
             this.txtIDBook.TextChanged += new System.EventHandler(this.txtIDBook_TextChanged);
             // 
             // txtBookTitle
@@ -152,7 +152,7 @@
             this.btnDel.Location = new System.Drawing.Point(380, 410);
             this.btnDel.Name = "btnDel";
             this.btnDel.Size = new System.Drawing.Size(105, 47);
-            this.btnDel.TabIndex = 14;
+            this.btnDel.TabIndex = 7;
             this.btnDel.Text = "Delete";
             this.btnDel.UseVisualStyleBackColor = false;
             this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
@@ -166,7 +166,7 @@
             this.btnSearch.Location = new System.Drawing.Point(929, 409);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(105, 47);
-            this.btnSearch.TabIndex = 15;
+            this.btnSearch.TabIndex = 10;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
@@ -180,7 +180,7 @@
             this.btnEdit.Location = new System.Drawing.Point(211, 410);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(105, 47);
-            this.btnEdit.TabIndex = 16;
+            this.btnEdit.TabIndex = 6;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = false;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
@@ -194,7 +194,7 @@
             this.btnSave.Location = new System.Drawing.Point(1148, 48);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(105, 47);
-            this.btnSave.TabIndex = 21;
+            this.btnSave.TabIndex = 3;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -208,7 +208,7 @@
             this.btnClear.Location = new System.Drawing.Point(1148, 121);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(105, 47);
-            this.btnClear.TabIndex = 22;
+            this.btnClear.TabIndex = 4;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -233,7 +233,7 @@
             this.btnSort.Location = new System.Drawing.Point(574, 410);
             this.btnSort.Name = "btnSort";
             this.btnSort.Size = new System.Drawing.Size(105, 47);
-            this.btnSort.TabIndex = 25;
+            this.btnSort.TabIndex = 8;
             this.btnSort.Text = "Sort";
             this.btnSort.UseVisualStyleBackColor = false;
             this.btnSort.Click += new System.EventHandler(this.btnSort_Click);
@@ -250,14 +250,14 @@
             this.cbbSort.Location = new System.Drawing.Point(685, 419);
             this.cbbSort.Name = "cbbSort";
             this.cbbSort.Size = new System.Drawing.Size(186, 31);
-            this.cbbSort.TabIndex = 26;
+            this.cbbSort.TabIndex = 9;
             // 
             // txtSearchName
             // 
             this.txtSearchName.Location = new System.Drawing.Point(1055, 418);
             this.txtSearchName.Name = "txtSearchName";
             this.txtSearchName.Size = new System.Drawing.Size(234, 32);
-            this.txtSearchName.TabIndex = 27;
+            this.txtSearchName.TabIndex = 11;
             // 
             // groupBox1
             // 
@@ -285,7 +285,7 @@
             this.txtDiscount.Location = new System.Drawing.Point(743, 113);
             this.txtDiscount.Name = "txtDiscount";
             this.txtDiscount.Size = new System.Drawing.Size(347, 32);
-            this.txtDiscount.TabIndex = 23;
+            this.txtDiscount.TabIndex = 2;
             this.txtDiscount.TextChanged += new System.EventHandler(this.txtDiscount_TextChanged);
             // 
             // groupBox2
@@ -314,7 +314,7 @@
             this.btnShow.Location = new System.Drawing.Point(12, 410);
             this.btnShow.Name = "btnShow";
             this.btnShow.Size = new System.Drawing.Size(105, 47);
-            this.btnShow.TabIndex = 28;
+            this.btnShow.TabIndex = 5;
             this.btnShow.Text = "Show";
             this.btnShow.UseVisualStyleBackColor = false;
             this.btnShow.Click += new System.EventHandler(this.btnShow_Click);

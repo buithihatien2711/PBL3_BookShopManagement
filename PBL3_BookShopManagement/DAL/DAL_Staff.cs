@@ -57,8 +57,10 @@ namespace PBL3_BookShopManagement.DAL
                 id_user = Convert.ToInt32(i[0]);
             }
 
-            string query_insertStaff = "insert into Staff values ('" + staff.Name_Staff + "' , '" +  staff.Gender.ToString() 
-                + "', '" + staff.DateOfBirth.ToString() + "', '" + staff.Address + "', " + id_user.ToString() + ")";
+            //string query_insertStaff = "insert into Staff values ('" + staff.Name_Staff + "' , '" +  staff.Gender.ToString() 
+            //    + "', '" + staff.DateOfBirth.ToString() + "', '" + staff.Address + "', " + id_user.ToString() + ")";
+            string query_insertStaff = string.Format("insert into Staff values ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', {6})",
+                staff.Name_Staff, staff.Gender, staff.DateOfBirth, staff.Address, staff.Mail, staff.SDT, id_user);
             DBHelper.Instance.ExcuteDB(query_insertStaff);
         }
         public void UpdateStaff_DAL(Staff staff, Account account)
@@ -67,7 +69,8 @@ namespace PBL3_BookShopManagement.DAL
             string query_updateAccount = "update Account set UserName = '" + account.UserName + "', Password = '" + account.Password + "', ID_Position = " + account.ID_Position.ToString() + " where ID_User =" + account.ID_User.ToString();
             DBHelper.Instance.ExcuteDB(query_updateAccount);
             string query_UpdateStaff = "update Staff set Name_Staff = '" + staff.Name_Staff + "', Gender = '" + staff.Gender.ToString() + "', DateOfBirth = '"
-                + staff.DateOfBirth.ToString() + "', Address = '" + staff.Address + "' where ID_Staff = " + staff.ID_Staff.ToString();
+                + staff.DateOfBirth.ToString() + "', Address = '" + staff.Address + "', Mail = '" + staff.Mail + "', SDT = '" + staff.SDT + "' where ID_Staff = " 
+                + staff.ID_Staff.ToString();
             DBHelper.Instance.ExcuteDB(query_UpdateStaff);
         }
         public DataTable GetAllAcount_DAL()
@@ -103,7 +106,9 @@ namespace PBL3_BookShopManagement.DAL
                 ID_User = Convert.ToInt32(i["ID_User"]),
                 UserName = i["UserName"].ToString(),
                 Password = i["Password"].ToString(),
-                NamePosition = i["NamePosition"].ToString()
+                NamePosition = i["NamePosition"].ToString(),
+                Mail = i["Mail"].ToString(),
+                SDT = i["SDT"].ToString()
             };
         }
         public string getNamePosition(int idPos)
@@ -121,16 +126,16 @@ namespace PBL3_BookShopManagement.DAL
         public List<StaffView> GetListStaffViewbyName_DAL(string name)
         {
             string query = "";
-            if (name == null)
-            {
-                query = "select Staff.ID_Staff, Name_Staff, Gender, DateOfBirth, Address, Account.ID_User, UserName, Password, NamePosition " +
-                                 "from Staff, Account, Position where Staff.ID_User = Account.ID_User and Account.ID_Position = Position.ID_Position";
-            }
-            else
-            {
-                query = "select Staff.ID_Staff, Name_Staff, Gender, DateOfBirth, Address, Account.ID_User, UserName, Password, NamePosition " +
-                             "from Staff, Account, Position where Staff.ID_User = Account.ID_User and Account.ID_Position = Position.ID_Position and Name_Staff = '" + name + "'"; 
-            }
+            //if (name == null)
+            //{
+            //    query = "select Staff.ID_Staff, Name_Staff, Gender, DateOfBirth, Address, Mail, SDT, Account.ID_User, UserName, Password, NamePosition " +
+            //                     "from Staff, Account, Position where Staff.ID_User = Account.ID_User and Account.ID_Position = Position.ID_Position";
+            //}
+            //else
+            //{
+                query = "select Staff.ID_Staff, Name_Staff, Gender, DateOfBirth, Address, Mail, SDT, Account.ID_User, UserName, Password, NamePosition " +
+                             "from Staff, Account, Position where Staff.ID_User = Account.ID_User and Account.ID_Position = Position.ID_Position and Name_Staff like '%" + name + "%'"; 
+            //}
             List<StaffView> list = new List<StaffView>();
             foreach(DataRow i in DBHelper.Instance.GetRecord(query).Rows)
             {
@@ -171,5 +176,7 @@ namespace PBL3_BookShopManagement.DAL
             //    return DBHelper.Instance.GetRecord(query);
             //}
         }
+
+
     }
 }

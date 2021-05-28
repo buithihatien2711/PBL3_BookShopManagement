@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
             this.lbVon = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -38,14 +37,6 @@
             this.txtChiPhi = new System.Windows.Forms.TextBox();
             this.txtLai = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(160)))));
-            this.panel1.Location = new System.Drawing.Point(9, 11);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1391, 47);
-            this.panel1.TabIndex = 0;
             // 
             // lbVon
             // 
@@ -128,7 +119,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lbVon);
-            this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(160)))));
             this.Name = "UC_ManageProfit";
@@ -139,8 +129,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lbVon;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;

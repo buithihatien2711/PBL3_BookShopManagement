@@ -1,3 +1,5 @@
+create database PBL3_BookshopManagement
+
 create table Position(
 ID_Position int primary key,
 NamePosition varchar(20))
@@ -15,6 +17,10 @@ Gender bit,
 DateOfBirth datetime,
 Address varchar(40),
 ID_User int references Account(ID_User) unique)
+
+alter table Staff
+add mail varchar(30),
+sdt varchar(11);
 
 create table Sach(
 MaSach int identity(1, 1) primary key,

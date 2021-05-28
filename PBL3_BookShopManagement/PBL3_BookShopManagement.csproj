@@ -106,6 +106,12 @@
     <Compile Include="GUI\UserControls\UC_Home.Designer.cs">
       <DependentUpon>UC_Home.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\UserControls\UC_ManageKho.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UserControls\UC_ManageKho.Designer.cs">
+      <DependentUpon>UC_ManageKho.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\UserControls\UC_ManageExpense.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -161,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\UserControls\UC_Home.resx">
       <DependentUpon>UC_Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UserControls\UC_ManageKho.resx">
+      <DependentUpon>UC_ManageKho.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\UserControls\UC_ManageExpense.resx">
       <DependentUpon>UC_ManageExpense.cs</DependentUpon>

@@ -37,8 +37,10 @@ namespace PBL3_BookShopManagement.BLL
                     Gender = Convert.ToBoolean(i["Gender"]),
                     DateOfBirth = Convert.ToDateTime(i["DateOfBirth"]),
                     Address = i["Address"].ToString(),
+                    Mail = i["Mail"].ToString(),
+                    SDT = i["SDT"].ToString(),
                     ID_User = Convert.ToInt32(i["ID_User"])
-                });
+                }) ;
             }
             return list;
         }

@@ -14,5 +14,7 @@ namespace PBL3_BookShopManagement.DTO
         public DateTime DateOfBirth { get; set; }
         public string Address { get; set; }
         public int ID_User { get; set; }
+        public string SDT { get; set; }
+        public string Mail { get; set; }
     }
 }

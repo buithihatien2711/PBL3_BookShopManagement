@@ -8,4 +8,7 @@ use PBL3_BookshopManagement
 --insert into Account values ('d', 'd', 2)
 --SELECT TOP 1 ID_User FROM Account  ORDER BY ID_User DESC; 
 
-insert into Staff values ('d' ,'True', '5/18/2021 9:49:21 AM', 'Quang Tri', 28)
+--insert into Staff values ('d' ,'True', '5/18/2021 9:49:21 AM', 'Quang Tri', 28)
+insert into Account values ( N'bvt',  N'bvt', 3)
+
+insert into Staff values ('BVT', 'False', '5/18/1998 12:00:00 AM', 'Ha Nam', 'bvt@gmail.com', '099283921', 40)

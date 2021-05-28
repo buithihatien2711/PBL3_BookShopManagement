@@ -1,4 +1,8 @@
-﻿using PBL3_BookShopManagement.GUI.UserControls;
+﻿//Sửa lại tiêu đề mấy column trong datagridview
+//Tìm kiếm gần đúng
+//Sửa lại mấy cái icon
+
+using PBL3_BookShopManagement.GUI.UserControls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,6 +28,7 @@ namespace PBL3_BookShopManagement.GUI.Forms
             isCollapsed = false;
             UC_Home uch = new UC_Home();
             AddControlsToPanel(uch);
+
         }
 
         private void button9_Click(object sender, EventArgs e)
@@ -127,6 +132,13 @@ namespace PBL3_BookShopManagement.GUI.Forms
         {
             moveSidePanel(btnDiscount);
             UC_Discount ea = new UC_Discount();
+            AddControlsToPanel(ea);
+        }
+
+        private void btnWarehouse_Click(object sender, EventArgs e)
+        {
+            moveSidePanel(btnWarehouse);
+            UC_ManageKho ea = new UC_ManageKho();
             AddControlsToPanel(ea);
         }
     }

@@ -280,11 +280,15 @@ namespace PBL3_BookShopManagement.GUI.UserControls
 
         private void btnDetail_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0)
+            if ((dataGridView1.SelectedRows.Count > 0) && (rbtnTongHop.Checked))
             {
                 int MaHD = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["MaHoaDon"].Value);
                 Form_InvoiceDetail f = new Form_InvoiceDetail(MaHD);
                 f.Show();
+            }
+            else
+            {
+                MessageBox.Show("Select the row you want to see invoice details");
             }
         }
     }

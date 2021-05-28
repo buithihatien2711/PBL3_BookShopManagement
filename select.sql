@@ -95,4 +95,68 @@ select TenLoaiSach, SUM(SoLuong) as TongSachBan, SUM(GiaBia*(1 - ChiTietHoaDon.M
 where ChiTietHoaDon.MaSach = Sach.MaSach and ChiTietHoaDon.MaHoaDon = HoaDon.MaHoaDon and ChiTietHoaDon.MaSach = ThongTinXuatBan.MaSach and NgayLap >= '01/01/2021' and NgayLap <= '01/31/2021' group by TenLoaiSach
 
 
-select * from ChiTietHoaDon
+-------------------THỐNG KÊ SỐ LƯỢNG SÁCH CÓ TRONG KHO----------------------------
+select Kho.MaSach, TenSach, TongSoLuong, SoLuongCon  from Kho, Sach where Kho.MaSach = Sach.MaSach
+
+select TenLoaiSach, SUM(TongSoLuong), SUM(SoLuongCon) from Kho, Sach where Kho.MaSach = Sach.MaSach group by TenLoaiSach
+
+select TenLinhVuc, SUM(TongSoLuong), SUM(SoLuongCon) from Kho, Sach where Kho.MaSach = Sach.MaSach group by TenLinhVuc
+
+select * from Sach where TenSach like '%%'
+
+select Sum(TongSoLuong) from Kho
+
+select Sum(SoLuongCon) from Kho
+
+select TongTien from HoaDon where MaHoaDon = 1
+
+--CREATE FUNCTION [dbo].[fuConvertToUnsign1]
+--(
+-- @strInput NVARCHAR(4000)
+--)
+--RETURNS NVARCHAR(4000)
+--AS
+--BEGIN 
+-- IF @strInput IS NULL RETURN @strInput
+-- IF @strInput = '' RETURN @strInput
+-- DECLARE @RT NVARCHAR(4000)
+-- DECLARE @SIGN_CHARS NCHAR(136)
+-- DECLARE @UNSIGN_CHARS NCHAR (136)
+-- SET @SIGN_CHARS = N'ăâđêôơưàảãạáằẳẵặắầẩẫậấèẻẽẹéềểễệế
+-- ìỉĩịíòỏõọóồổỗộốờởỡợớùủũụúừửữựứỳỷỹỵý
+-- ĂÂĐÊÔƠƯÀẢÃẠÁẰẲẴẶẮẦẨẪẬẤÈẺẼẸÉỀỂỄỆẾÌỈĨỊÍ
+-- ÒỎÕỌÓỒỔỖỘỐỜỞỠỢỚÙỦŨỤÚỪỬỮỰỨỲỶỸỴÝ'
+-- +NCHAR(272)+ NCHAR(208)
+-- SET @UNSIGN_CHARS = N'aadeoouaaaaaaaaaaaaaaaeeeeeeeeee
+-- iiiiiooooooooooooooouuuuuuuuuuyyyyy
+-- AADEOOUAAAAAAAAAAAAAAAEEEEEEEEEEIIIII
+-- OOOOOOOOOOOOOOOUUUUUUUUUUYYYYYDD'
+-- DECLARE @COUNTER int
+-- DECLARE @COUNTER1 int
+-- SET @COUNTER = 1
+-- WHILE (@COUNTER <=LEN(@strInput))
+-- BEGIN 
+-- SET @COUNTER1 = 1
+-- WHILE (@COUNTER1 <=LEN(@SIGN_CHARS)+1)
+-- BEGIN
+-- IF UNICODE(SUBSTRING(@SIGN_CHARS, @COUNTER1,1))
+-- = UNICODE(SUBSTRING(@strInput,@COUNTER ,1) )
+-- BEGIN 
+-- IF @COUNTER=1
+-- SET @strInput = SUBSTRING(@UNSIGN_CHARS, @COUNTER1,1)
+-- + SUBSTRING(@strInput, @COUNTER+1,LEN(@strInput)-1) 
+-- ELSE
+-- SET @strInput = SUBSTRING(@strInput, 1, @COUNTER-1)
+-- +SUBSTRING(@UNSIGN_CHARS, @COUNTER1,1)
+-- + SUBSTRING(@strInput, @COUNTER+1,LEN(@strInput)- @COUNTER)
+-- BREAK
+-- END
+-- SET @COUNTER1 = @COUNTER1 +1
+-- END
+-- SET @COUNTER = @COUNTER +1
+-- END
+-- SET @strInput = replace(@strInput,' ','-')
+-- RETURN @strInput
+--END
+
+insert into Staff values ('ab', 'True', '5/18/2021 12:00:00 AM', 'ab', 'ab', '1', 43)

@@ -159,9 +159,12 @@ namespace PBL3_BookShopManagement.DAL
         {
             int soluong = 0;
             string query = string.Format("select SUM(SoLuong) from ChiTietHoaDon, HoaDon where NgayLap >= '{0}' and NgayLap <= '{1}' and ChiTietHoaDon.MaHoaDon = HoaDon.MaHoaDon", dateFrom, dateTo);
-            foreach(DataRow i in DBHelper.Instance.GetRecord(query).Rows)
+            if (DBHelper.Instance.GetRecord(query).Rows.Count > 1)
             {
-                soluong = Convert.ToInt32(i[0]);
+                foreach (DataRow i in DBHelper.Instance.GetRecord(query).Rows)
+                {
+                    soluong = Convert.ToInt32(i[0]);
+                }
             }
             return soluong;
         }
@@ -179,9 +182,12 @@ namespace PBL3_BookShopManagement.DAL
         {
             decimal tongtien = 0;
             string query = string.Format("select SUM(TongTien) from HoaDon where NgayLap >= '{0}' and NgayLap <= '{1}'", dateFrom, dateTo);
-            foreach (DataRow i in DBHelper.Instance.GetRecord(query).Rows)
+            if (DBHelper.Instance.GetRecord(query).Rows.Count > 1)
             {
-                tongtien = Convert.ToInt32(i[0]);
+                foreach (DataRow i in DBHelper.Instance.GetRecord(query).Rows)
+                {
+                    tongtien = Convert.ToInt32(i[0]);
+                }
             }
             return tongtien;
         }
@@ -189,9 +195,12 @@ namespace PBL3_BookShopManagement.DAL
         {
             int soluong = 0;
             string query = string.Format("select SUM(SoLuong) from NhatKiNhapSach where NgayNhap >= '{0}' and NgayNhap <= '{1}'", dateFrom, dateTo);
-            foreach (DataRow i in DBHelper.Instance.GetRecord(query).Rows)
+            if (DBHelper.Instance.GetRecord(query).Columns.Count > 1)
             {
-                soluong = Convert.ToInt32(i[0]);
+                foreach (DataRow i in DBHelper.Instance.GetRecord(query).Rows)
+                {
+                    soluong = Convert.ToInt32(i[0]);
+                }
             }
             return soluong;
         }
@@ -200,11 +209,52 @@ namespace PBL3_BookShopManagement.DAL
             decimal TienMua = 0;
             string query = string.Format("select SUM(SoLuong*GiaMua) as ChiPhi from Sach, NhatKiNhapSach where Sach.MaSach = NhatKiNhapSach.MaSach " +
                 "and NgayNhap >= '{0}' and NgayNhap <= '{1}'", dateFrom, dateTo);
-            foreach (DataRow i in DBHelper.Instance.GetRecord(query).Rows)
+            if (DBHelper.Instance.GetRecord(query).Rows.Count > 1)
             {
-                TienMua = Convert.ToInt32(i[0]);
+                foreach (DataRow i in DBHelper.Instance.GetRecord(query).Rows)
+                {
+                    TienMua = Convert.ToInt32(i[0]);
+                }
             }
             return TienMua;
         }
+        public int GetTongSoSachKho_DAL()
+        {
+            int soluong = 0;
+            foreach(DataRow i in DBHelper.Instance.GetRecord("select Sum(TongSoLuong) from Kho").Rows)
+            {
+                soluong = Convert.ToInt32(i[0]);
+            }
+            return soluong;
+        }
+        public int GetSoSachConKho_DAL()
+        {
+            int soluong = 0;
+            foreach (DataRow i in DBHelper.Instance.GetRecord("select Sum(SoLuongCon) from Kho").Rows)
+            {
+                soluong = Convert.ToInt32(i[0]);
+            }
+            return soluong;
+        }
+        public DataTable GetKhobySach_DAL()
+        {
+            return DBHelper.Instance.GetRecord("select Kho.MaSach, TenSach, TongSoLuong, SoLuongCon  from Kho, Sach " +
+                "where Kho.MaSach = Sach.MaSach");
+        }
+        public DataTable GetKhobyLoaiSach_DAL()
+        {
+            return DBHelper.Instance.GetRecord("select TenLoaiSach, SUM(TongSoLuong), SUM(SoLuongCon) from Kho, Sach " +
+                "where Kho.MaSach = Sach.MaSach group by TenLoaiSach");
+        }
+        public DataTable GetKhobyLinhVuc_DAL()
+        {
+            return DBHelper.Instance.GetRecord("select TenLinhVuc, SUM(TongSoLuong), SUM(SoLuongCon) from Kho, Sach " +
+                "where Kho.MaSach = Sach.MaSach group by TenLinhVuc");
+        }
+
+        //public DataTable Test()
+        //{
+        //    return DBHelper.Instance.GetRecord("select * from HoaDon");
+        //}
     }
 }

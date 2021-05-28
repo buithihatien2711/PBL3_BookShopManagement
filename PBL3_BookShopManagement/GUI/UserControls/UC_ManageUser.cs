@@ -67,6 +67,17 @@ namespace PBL3_BookShopManagement.GUI.UserControls
         public void Show(string name, int idPos)
         {
             dataGridView1.DataSource = BLL_Staff.Instance.GetListStaffView_BLL(name, idPos);
+            dataGridView1.Columns[0].HeaderText = "ID Staff";
+            dataGridView1.Columns[1].HeaderText = "Name Staff";
+            dataGridView1.Columns[2].HeaderText = "Gender";
+            dataGridView1.Columns[3].HeaderText = "Date of Birth";
+            dataGridView1.Columns[4].HeaderText = "Address";
+            dataGridView1.Columns[5].HeaderText = "Phone number";
+            dataGridView1.Columns[6].HeaderText = "Mail";
+            dataGridView1.Columns[7].HeaderText = "ID User";
+            dataGridView1.Columns[8].HeaderText = "User name";
+            dataGridView1.Columns[9].HeaderText = "Password";
+            dataGridView1.Columns[10].HeaderText = "Position";
         }
 
         private Staff GetStaff()
@@ -87,6 +98,8 @@ namespace PBL3_BookShopManagement.GUI.UserControls
             {
                 staff.Gender = false;
             }
+            staff.Mail = txtMail.Text;
+            staff.SDT = txtSDT.Text;
             return staff;
         }
 
@@ -115,6 +128,8 @@ namespace PBL3_BookShopManagement.GUI.UserControls
             txtAddress.Text = "";
             rbtnMale.Checked = false;
             rbtnFemale.Checked = false;
+            txtMail.Text = "";
+            txtSDT.Text = "";
             CBBItem item = new CBBItem();
             txtIDUser.Text = "";
             cbbRole.SelectedIndex = -1;
@@ -141,11 +156,15 @@ namespace PBL3_BookShopManagement.GUI.UserControls
             {
                 rbtnFemale.Checked = true;
             }
+            txtMail.Text = staff.Mail;
+            txtSDT.Text = staff.SDT;
             CBBItem item = new CBBItem();
             foreach(CBBItem i in cbbRole.Items)
             {
                 if (i.Value == account.ID_Position) item = i;
             }
+            txtMail.Text = staff.Mail;
+            txtSDT.Text = staff.SDT;
             txtIDUser.Text = staff.ID_User.ToString();
             cbbRole.SelectedIndex = cbbRole.Items.IndexOf(item);
             txtUserName.Text = account.UserName;
@@ -172,7 +191,8 @@ namespace PBL3_BookShopManagement.GUI.UserControls
         private void btnSave_Click(object sender, EventArgs e)
         {
             if ((txtName.Text == null) || (txtAddress.Text == null) || ((rbtnMale.Checked == false) && (rbtnFemale.Checked == false)) ||
-                (txtUserName.Text == null) || (txtPass.Text == null) || (cbbRole.SelectedIndex == -1))
+                (txtUserName.Text == null) || (txtPass.Text == null) || (txtMail.Text == null) || (txtSDT.Text == null) || 
+                (cbbRole.SelectedIndex == -1))
             {
                 MessageBox.Show("Enter complete information");
             }

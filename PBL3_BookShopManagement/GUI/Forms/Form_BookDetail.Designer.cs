@@ -109,7 +109,7 @@
             this.btnSave.Location = new System.Drawing.Point(570, 440);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(164, 38);
-            this.btnSave.TabIndex = 20;
+            this.btnSave.TabIndex = 10;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -119,7 +119,7 @@
             this.txtTenSach.Location = new System.Drawing.Point(533, 88);
             this.txtTenSach.Name = "txtTenSach";
             this.txtTenSach.Size = new System.Drawing.Size(241, 32);
-            this.txtTenSach.TabIndex = 14;
+            this.txtTenSach.TabIndex = 1;
             // 
             // txtBookID
             // 
@@ -216,7 +216,7 @@
             this.txtTacGia.Location = new System.Drawing.Point(145, 215);
             this.txtTacGia.Name = "txtTacGia";
             this.txtTacGia.Size = new System.Drawing.Size(234, 32);
-            this.txtTacGia.TabIndex = 13;
+            this.txtTacGia.TabIndex = 4;
             // 
             // cbbLoaiSach
             // 
@@ -235,7 +235,7 @@
             this.cbbLoaiSach.Location = new System.Drawing.Point(533, 152);
             this.cbbLoaiSach.Name = "cbbLoaiSach";
             this.cbbLoaiSach.Size = new System.Drawing.Size(234, 31);
-            this.cbbLoaiSach.TabIndex = 21;
+            this.cbbLoaiSach.TabIndex = 3;
             // 
             // label3
             // 
@@ -261,7 +261,7 @@
             this.cbbLinhVuc.Location = new System.Drawing.Point(145, 149);
             this.cbbLinhVuc.Name = "cbbLinhVuc";
             this.cbbLinhVuc.Size = new System.Drawing.Size(234, 31);
-            this.cbbLinhVuc.TabIndex = 21;
+            this.cbbLinhVuc.TabIndex = 2;
             // 
             // btnClear
             // 
@@ -274,7 +274,7 @@
             this.btnClear.Location = new System.Drawing.Point(425, 440);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(138, 38);
-            this.btnClear.TabIndex = 20;
+            this.btnClear.TabIndex = 11;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -319,7 +319,7 @@
             this.txtNXB.Location = new System.Drawing.Point(533, 218);
             this.txtNXB.Name = "txtNXB";
             this.txtNXB.Size = new System.Drawing.Size(234, 32);
-            this.txtNXB.TabIndex = 29;
+            this.txtNXB.TabIndex = 5;
             // 
             // numLanTaiBan
             // 
@@ -332,7 +332,7 @@
             0});
             this.numLanTaiBan.Name = "numLanTaiBan";
             this.numLanTaiBan.Size = new System.Drawing.Size(229, 32);
-            this.numLanTaiBan.TabIndex = 30;
+            this.numLanTaiBan.TabIndex = 6;
             // 
             // numNamXuatBan
             // 
@@ -349,7 +349,7 @@
             0});
             this.numNamXuatBan.Name = "numNamXuatBan";
             this.numNamXuatBan.Size = new System.Drawing.Size(234, 32);
-            this.numNamXuatBan.TabIndex = 31;
+            this.numNamXuatBan.TabIndex = 7;
             this.numNamXuatBan.Value = new decimal(new int[] {
             1600,
             0,
@@ -366,7 +366,7 @@
             this.numGiaBan.Location = new System.Drawing.Point(150, 350);
             this.numGiaBan.Name = "numGiaBan";
             this.numGiaBan.Size = new System.Drawing.Size(229, 32);
-            this.numGiaBan.TabIndex = 32;
+            this.numGiaBan.TabIndex = 8;
             this.numGiaBan.ThousandsSeparator = true;
             // 
             // numGiaMua
@@ -379,7 +379,7 @@
             this.numGiaMua.Location = new System.Drawing.Point(533, 350);
             this.numGiaMua.Name = "numGiaMua";
             this.numGiaMua.Size = new System.Drawing.Size(234, 32);
-            this.numGiaMua.TabIndex = 33;
+            this.numGiaMua.TabIndex = 9;
             this.numGiaMua.ThousandsSeparator = true;
             // 
             // Form_BookDetail

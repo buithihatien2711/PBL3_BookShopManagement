@@ -51,16 +51,16 @@ namespace PBL3_BookShopManagement.DAL
         public List<SachView> getListSachViewbyName_DAL(string name)
         {
             string query = "";
-            if (name == "")
-            {
+            //if (name == "")
+            //{
+            //    query = "select Sach.MaSach, TenSach, GiaMua, TenLoaiSach, TenTacGia, TenLinhVuc, LanTaiBan, NamXuatBan, NhaXuatBan, GiaBia " +
+            //     "from Sach, ThongTinXuatBan where Sach.MaSach = ThongTinXuatBan.MaSach";
+            //}
+            //else
+            //{
                 query = "select Sach.MaSach, TenSach, GiaMua, TenLoaiSach, TenTacGia, TenLinhVuc, LanTaiBan, NamXuatBan, NhaXuatBan, GiaBia " +
-                 "from Sach, ThongTinXuatBan where Sach.MaSach = ThongTinXuatBan.MaSach";
-            }
-            else
-            {
-                query = "select Sach.MaSach, TenSach, GiaMua, TenLoaiSach, TenTacGia, TenLinhVuc, LanTaiBan, NamXuatBan, NhaXuatBan, GiaBia " +
-                    "from Sach, ThongTinXuatBan where Sach.MaSach = ThongTinXuatBan.MaSach and TenSach = '" + name + "'";
-            }
+                    "from Sach, ThongTinXuatBan where Sach.MaSach = ThongTinXuatBan.MaSach and TenSach like '%" + name + "%'";
+            //}
             List<SachView> list = new List<SachView>();
             foreach (DataRow i in DBHelper.Instance.GetRecord(query).Rows)
             {

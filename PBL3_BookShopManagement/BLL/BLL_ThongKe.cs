@@ -114,5 +114,26 @@ namespace PBL3_BookShopManagement.BLL
         {
             return DAL_ThongKe.Instance.GetHoaDonbyMaHD_DAL(MaHD);
         }
+
+        public int GetTongSoSachKho_BLL()
+        {
+            return DAL_ThongKe.Instance.GetTongSoSachKho_DAL();
+        }
+        public int GetSoSachConKho_BLL()
+        {
+            return DAL_ThongKe.Instance.GetSoSachConKho_DAL();
+        }
+        public DataTable GetKhobySach_BLL()
+        {
+            return DAL_ThongKe.Instance.GetKhobySach_DAL();
+        }
+        public DataTable GetKhobyLoaiSach_BLL()
+        {
+            return DAL_ThongKe.Instance.GetKhobyLoaiSach_DAL();
+        }
+        public DataTable GetKhobyLinhVuc_BLL()
+        {
+            return DAL_ThongKe.Instance.GetKhobyLinhVuc_DAL();
+        }
     }
 }
