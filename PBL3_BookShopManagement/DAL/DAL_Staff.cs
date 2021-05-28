@@ -45,7 +45,7 @@ namespace PBL3_BookShopManagement.DAL
             string query_insertAccount = string.Format("insert into Account values ( N'{0}',  N'{1}', {2})", 
                 account.UserName, account.Password, account.ID_Position);
                 //"insert into Account values ('" + account.UserName + "', '" + account.Password + "', " + account.ID_Position.ToString() + ")";
-            DBHelper.Instance.ExcuteDB(query_insertAccount);
+            DBHelper.Instance.ExecuteDB(query_insertAccount);
 
             string query = "SELECT TOP 1 ID_User FROM Account ORDER BY ID_User DESC";
 
@@ -61,17 +61,17 @@ namespace PBL3_BookShopManagement.DAL
             //    + "', '" + staff.DateOfBirth.ToString() + "', '" + staff.Address + "', " + id_user.ToString() + ")";
             string query_insertStaff = string.Format("insert into Staff values ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', {6})",
                 staff.Name_Staff, staff.Gender, staff.DateOfBirth, staff.Address, staff.Mail, staff.SDT, id_user);
-            DBHelper.Instance.ExcuteDB(query_insertStaff);
+            DBHelper.Instance.ExecuteDB(query_insertStaff);
         }
         public void UpdateStaff_DAL(Staff staff, Account account)
         {
             //Cập nhật bảng Account ko được nhưng bảng user đc => database có thay đổi => database ko đổi
             string query_updateAccount = "update Account set UserName = '" + account.UserName + "', Password = '" + account.Password + "', ID_Position = " + account.ID_Position.ToString() + " where ID_User =" + account.ID_User.ToString();
-            DBHelper.Instance.ExcuteDB(query_updateAccount);
+            DBHelper.Instance.ExecuteDB(query_updateAccount);
             string query_UpdateStaff = "update Staff set Name_Staff = '" + staff.Name_Staff + "', Gender = '" + staff.Gender.ToString() + "', DateOfBirth = '"
                 + staff.DateOfBirth.ToString() + "', Address = '" + staff.Address + "', Mail = '" + staff.Mail + "', SDT = '" + staff.SDT + "' where ID_Staff = " 
                 + staff.ID_Staff.ToString();
-            DBHelper.Instance.ExcuteDB(query_UpdateStaff);
+            DBHelper.Instance.ExecuteDB(query_UpdateStaff);
         }
         public DataTable GetAllAcount_DAL()
         {
@@ -89,10 +89,10 @@ namespace PBL3_BookShopManagement.DAL
             }
 
             string query_DelStaff  = "delete from Staff where ID_Staff = " + IDStaff;
-            DBHelper.Instance.ExcuteDB(query_DelStaff);
+            DBHelper.Instance.ExecuteDB(query_DelStaff);
 
             string query_DelAccount = "delete from Account where ID_User = " + IDUser;
-            DBHelper.Instance.ExcuteDB(query_DelAccount);
+            DBHelper.Instance.ExecuteDB(query_DelAccount);
         }
         public StaffView GetStaffView(DataRow i)
         {

@@ -140,7 +140,7 @@ namespace PBL3_BookShopManagement.BLL
             }
             return account;
         }
-        public void ExcuteStaff(Staff staff, Account account)
+        public void ExecuteStaff(Staff staff, Account account)
         {
             bool check = false;
             foreach(Staff i in getAllStaff_BLL())

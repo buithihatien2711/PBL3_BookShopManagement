@@ -28,7 +28,7 @@ namespace PBL3_BookShopManagement.DAL
         {
             cnnstring = @"Data Source=LAPTOP-J27Q18HQ\HATIEN123;Initial Catalog=PBL3_BookshopManagement;Integrated Security=True";
         }
-        public bool ExcuteDB(string query)
+        public bool ExecuteDB(string query)
         {
             try
             {

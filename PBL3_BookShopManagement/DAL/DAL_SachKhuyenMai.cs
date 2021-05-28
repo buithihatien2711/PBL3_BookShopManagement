@@ -81,7 +81,7 @@ namespace PBL3_BookShopManagement.DAL
         public bool AddSachKM_DAL(SachKhuyenMai sachKhuyenMai)
         {
             string query = string.Format("insert into SachKhuyenMai values ({0}, {1})", sachKhuyenMai.MaSach, sachKhuyenMai.MucGiamGia);
-            if (DBHelper.Instance.ExcuteDB(query))
+            if (DBHelper.Instance.ExecuteDB(query))
             {
                 return true;
             }
@@ -94,7 +94,7 @@ namespace PBL3_BookShopManagement.DAL
         {
             string query = string.Format("Update SachKhuyenMai set MucGiamGia = {0} where SachKhuyenMai.MaSach = {1} ", 
                 sachKhuyenMai.MaSach, sachKhuyenMai.MucGiamGia);
-            if (DBHelper.Instance.ExcuteDB(query))
+            if (DBHelper.Instance.ExecuteDB(query))
             {
                 return true;
             }
@@ -106,7 +106,7 @@ namespace PBL3_BookShopManagement.DAL
         public void DeleteSachKM_DAL(int masachKM)
         {
             string query = string.Format("delete from SachKhuyenMai where MaSach = {0}", masachKM);
-            DBHelper.Instance.ExcuteDB(query);
+            DBHelper.Instance.ExecuteDB(query);
         }
 
     }

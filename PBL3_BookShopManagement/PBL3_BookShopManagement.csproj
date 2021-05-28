@@ -76,12 +76,6 @@
     <Compile Include="GUI\Forms\Form_InvoiceDetail.Designer.cs">
       <DependentUpon>Form_InvoiceDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Forms\Form_AddNewUser.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\Forms\Form_AddNewUser.Designer.cs">
-      <DependentUpon>Form_AddNewUser.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\Forms\Form_Dashboard_Admin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,9 +146,6 @@
     </Compile>
     <EmbeddedResource Include="GUI\Forms\Form_InvoiceDetail.resx">
       <DependentUpon>Form_InvoiceDetail.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Forms\Form_AddNewUser.resx">
-      <DependentUpon>Form_AddNewUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Forms\Form_Dashboard_Admin.resx">
       <DependentUpon>Form_Dashboard_Admin.cs</DependentUpon>

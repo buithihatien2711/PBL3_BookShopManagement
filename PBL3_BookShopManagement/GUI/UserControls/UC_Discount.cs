@@ -67,7 +67,7 @@ namespace PBL3_BookShopManagement.GUI.UserControls
                 MaSach = Convert.ToInt32(txtIDBook.Text),
                 MucGiamGia = (float)Convert.ToDouble(txtDiscount.Text)
             };
-            BLL_SachKhuyenMai.Instance.ExcuteSachKM_BLL(sachKhuyenMai);
+            BLL_SachKhuyenMai.Instance.ExecuteSachKM_BLL(sachKhuyenMai);
             Show(txtSearchName.Text);
             ResetGUI();
         }

@@ -110,7 +110,7 @@ namespace PBL3_BookShopManagement.DAL
         {
             string query_insertSach = string.Format("insert into Sach values ('{0}', {1}, '{2}', '{3}', '{4}')",
                 sach.TenSach, sach.GiaMua, sach.TenLoaiSach, sach.TenTacGia, sach.TenLinhVuc);
-            DBHelper.Instance.ExcuteDB(query_insertSach);
+            DBHelper.Instance.ExecuteDB(query_insertSach);
 
             string query = "SELECT TOP 1 MaSach FROM Sach ORDER BY MaSach DESC";
 
@@ -122,23 +122,23 @@ namespace PBL3_BookShopManagement.DAL
 
             string query_insertTTXB = string.Format("insert into ThongTinXuatBan values ({0}, '{1}', '{2}', '{3}', {4})",
                 masach, thongTin.LanTaiBan, thongTin.NamXuatBan, thongTin.NhaXuatBan, thongTin.GiaBia);
-            DBHelper.Instance.ExcuteDB(query_insertTTXB);
+            DBHelper.Instance.ExecuteDB(query_insertTTXB);
         }
         public void UpdateSach_DAL(Sach sach, ThongTinXuatBan thongTin)
         {
             string query_updateSach = string.Format("update Sach set TenSach = '{0}', GiaMua = {1}, TenLoaiSach = '{2}', TenTacGia = '{3}', TenLinhVuc = '{4}' where MaSach = {5}",
                 sach.TenSach, sach.GiaMua, sach.TenLoaiSach, sach.TenTacGia, sach.TenLinhVuc, sach.MaSach);
-            DBHelper.Instance.ExcuteDB(query_updateSach);
+            DBHelper.Instance.ExecuteDB(query_updateSach);
             string query_UpdateTTXB = string.Format("update ThongTinXuatBan set LanTaiBan = '{0}', NamXuatBan = '{1}', NhaXuatBan = '{2}', GiaBia = {3} where MaSach = {4}",
                 thongTin.LanTaiBan, thongTin.NamXuatBan, thongTin.NhaXuatBan, thongTin.GiaBia, thongTin.MaSach);
-            DBHelper.Instance.ExcuteDB(query_UpdateTTXB);
+            DBHelper.Instance.ExecuteDB(query_UpdateTTXB);
         }
         public void DeleteSach_DAL(int masach)
         {
             string queryDel_TTXB = "delete from ThongTinXuatBan where ThongTinXuatBan.MaSach = " + masach.ToString();
-            DBHelper.Instance.ExcuteDB(queryDel_TTXB);
+            DBHelper.Instance.ExecuteDB(queryDel_TTXB);
             string queryDel_Sach = "delete from Sach where Sach.MaSach = " + masach.ToString();
-            DBHelper.Instance.ExcuteDB(queryDel_Sach);
+            DBHelper.Instance.ExecuteDB(queryDel_Sach);
         }
     }
 }

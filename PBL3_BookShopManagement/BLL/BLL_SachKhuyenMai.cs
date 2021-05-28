@@ -50,7 +50,7 @@ namespace PBL3_BookShopManagement.BLL
             return sachKMView;
         }
         //hàm lấy thông tin sách chưa có trong table sachKhuyenMai
-        public void ExcuteSachKM_BLL(SachKhuyenMai sachKhuyenMai)
+        public void ExecuteSachKM_BLL(SachKhuyenMai sachKhuyenMai)
         {
             bool check = false;
             foreach(DataRow i in DAL_SachKhuyenMai.Instance.getAllSachKhuyenMai().Rows)

@@ -53,7 +53,7 @@ namespace PBL3_BookShopManagement.BLL
         {
             DAL_Sach.Instance.UpdateSach_DAL(sach, thongTin);
         }
-        public void ExcuteSach(Sach sach, ThongTinXuatBan thongTin)
+        public void ExecuteSach(Sach sach, ThongTinXuatBan thongTin)
         {
             bool check = false;
             foreach (DataRow i in DAL_Sach.Instance.getAllSach_DAL().Rows)

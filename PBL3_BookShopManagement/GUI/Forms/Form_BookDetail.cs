@@ -105,7 +105,7 @@ namespace PBL3_BookShopManagement.GUI.Forms
             {
                 if ((GetSach() != null) && (GetThongTinXuatBan() != null))
                 {
-                    BLL_Sach.Instance.ExcuteSach(GetSach(), GetThongTinXuatBan());
+                    BLL_Sach.Instance.ExecuteSach(GetSach(), GetThongTinXuatBan());
                     d("", "All", "All");
                     this.Close();
                 }

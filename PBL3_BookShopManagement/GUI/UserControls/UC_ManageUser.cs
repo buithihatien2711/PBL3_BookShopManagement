@@ -203,7 +203,7 @@ namespace PBL3_BookShopManagement.GUI.UserControls
                 //{
                 //    idStaff = Convert.ToInt32(txtIDStaff.Text.ToString());
                 //}
-                BLL_Staff.Instance.ExcuteStaff(GetStaff(), GetAccount());
+                BLL_Staff.Instance.ExecuteStaff(GetStaff(), GetAccount());
                 dataGridView1.DataSource = BLL_Staff.Instance.GetListStaffView_BLL(null, ((CBBItem)(cbbShow.SelectedItem)).Value);
                 ResetGUI();
             }
