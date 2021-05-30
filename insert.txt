@@ -1,2 +1,0 @@
-select where tất cả thông tin nhập vào
-nếu có bản ghi thì ko cho thêm nếu ko có thì cho thêm
