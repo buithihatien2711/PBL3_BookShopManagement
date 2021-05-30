@@ -29,7 +29,10 @@ namespace PBL3_BookShopManagement.DAL
             int SoHoaDon = 0;
             foreach(DataRow i in DBHelper.Instance.GetRecord("select count(MaHoaDon) from HoaDon").Rows)
             {
-                SoHoaDon = Convert.ToInt32(i[0]);
+                if(i[0].ToString() != "")
+                {
+                    SoHoaDon = Convert.ToInt32(i[0]);
+                }
             }
             return SoHoaDon;
         }
@@ -38,7 +41,10 @@ namespace PBL3_BookShopManagement.DAL
             int DoanhThu = 0;
             foreach(DataRow i in DBHelper.Instance.GetRecord("select sum(TongTien) from HoaDon").Rows)
             {
-                DoanhThu = Convert.ToInt32(i[0]);
+                if (i[0].ToString() != "")
+                {
+                    DoanhThu = Convert.ToInt32(i[0]);
+                }
             }
             return DoanhThu;
         }
@@ -47,7 +53,10 @@ namespace PBL3_BookShopManagement.DAL
             int SoSach = 0;
             foreach (DataRow i in DBHelper.Instance.GetRecord("select sum(SoLuong) from ChiTietHoaDon").Rows)
             {
-                SoSach = Convert.ToInt32(i[0]);
+                if (i[0].ToString() != "")
+                {
+                    SoSach = Convert.ToInt32(i[0]);
+                }
             }
             return SoSach;
         }
@@ -109,7 +118,10 @@ namespace PBL3_BookShopManagement.DAL
             foreach (DataRow i in DBHelper.Instance.GetRecord("select Sum(ChiPhi) as TongChiPhi from (select NhatKiNhapSach.MaSach, SoLuong*GiaMua as ChiPhi " +
                 "from Sach, NhatKiNhapSach where Sach.MaSach = NhatKiNhapSach.MaSach) as truyvan").Rows)
             {
-                DoanhThu = Convert.ToInt32(i[0]);
+                if(i[0].ToString() != "")
+                {
+                    DoanhThu = Convert.ToInt32(i[0]);
+                }
             }
             return DoanhThu;
         }
@@ -118,7 +130,10 @@ namespace PBL3_BookShopManagement.DAL
             int SoSach = 0;
             foreach (DataRow i in DBHelper.Instance.GetRecord("select sum(SoLuong) from NhatKiNhapSach").Rows)
             {
-                SoSach = Convert.ToInt32(i[0]);
+                if (i[0].ToString() != "")
+                {
+                    SoSach = Convert.ToInt32(i[0]);
+                }
             }
             return SoSach;
         }
@@ -159,9 +174,9 @@ namespace PBL3_BookShopManagement.DAL
         {
             int soluong = 0;
             string query = string.Format("select SUM(SoLuong) from ChiTietHoaDon, HoaDon where NgayLap >= '{0}' and NgayLap <= '{1}' and ChiTietHoaDon.MaHoaDon = HoaDon.MaHoaDon", dateFrom, dateTo);
-            if (DBHelper.Instance.GetRecord(query).Rows.Count > 1)
+            foreach (DataRow i in DBHelper.Instance.GetRecord(query).Rows)
             {
-                foreach (DataRow i in DBHelper.Instance.GetRecord(query).Rows)
+                if(i[0].ToString() != "")
                 {
                     soluong = Convert.ToInt32(i[0]);
                 }
@@ -174,7 +189,10 @@ namespace PBL3_BookShopManagement.DAL
             string query = string.Format("select COUNT(MaHoaDon) from HoaDon where NgayLap >= '{0}' and NgayLap <= '{1}'", dateFrom, dateTo);
             foreach (DataRow i in DBHelper.Instance.GetRecord(query).Rows)
             {
-                soluong = Convert.ToInt32(i[0]);
+                if(i[0].ToString() != "")
+                {
+                    soluong = Convert.ToInt32(i[0]);
+                } 
             }
             return soluong;
         }
@@ -182,9 +200,9 @@ namespace PBL3_BookShopManagement.DAL
         {
             decimal tongtien = 0;
             string query = string.Format("select SUM(TongTien) from HoaDon where NgayLap >= '{0}' and NgayLap <= '{1}'", dateFrom, dateTo);
-            if (DBHelper.Instance.GetRecord(query).Rows.Count > 1)
+            foreach (DataRow i in DBHelper.Instance.GetRecord(query).Rows)
             {
-                foreach (DataRow i in DBHelper.Instance.GetRecord(query).Rows)
+                if (i[0].ToString() != "")
                 {
                     tongtien = Convert.ToInt32(i[0]);
                 }
@@ -195,9 +213,9 @@ namespace PBL3_BookShopManagement.DAL
         {
             int soluong = 0;
             string query = string.Format("select SUM(SoLuong) from NhatKiNhapSach where NgayNhap >= '{0}' and NgayNhap <= '{1}'", dateFrom, dateTo);
-            if (DBHelper.Instance.GetRecord(query).Columns.Count > 1)
+            foreach (DataRow i in DBHelper.Instance.GetRecord(query).Rows)
             {
-                foreach (DataRow i in DBHelper.Instance.GetRecord(query).Rows)
+                if(i[0].ToString() != "")
                 {
                     soluong = Convert.ToInt32(i[0]);
                 }
@@ -209,12 +227,12 @@ namespace PBL3_BookShopManagement.DAL
             decimal TienMua = 0;
             string query = string.Format("select SUM(SoLuong*GiaMua) as ChiPhi from Sach, NhatKiNhapSach where Sach.MaSach = NhatKiNhapSach.MaSach " +
                 "and NgayNhap >= '{0}' and NgayNhap <= '{1}'", dateFrom, dateTo);
-            if (DBHelper.Instance.GetRecord(query).Rows.Count > 1)
+            foreach (DataRow i in DBHelper.Instance.GetRecord(query).Rows)
             {
-                foreach (DataRow i in DBHelper.Instance.GetRecord(query).Rows)
+                if(i[0].ToString() != "")
                 {
                     TienMua = Convert.ToInt32(i[0]);
-                }
+                } 
             }
             return TienMua;
         }
@@ -223,7 +241,10 @@ namespace PBL3_BookShopManagement.DAL
             int soluong = 0;
             foreach(DataRow i in DBHelper.Instance.GetRecord("select Sum(TongSoLuong) from Kho").Rows)
             {
-                soluong = Convert.ToInt32(i[0]);
+                if (i[0].ToString() != "")
+                {
+                    soluong = Convert.ToInt32(i[0]);
+                }
             }
             return soluong;
         }
@@ -232,7 +253,10 @@ namespace PBL3_BookShopManagement.DAL
             int soluong = 0;
             foreach (DataRow i in DBHelper.Instance.GetRecord("select Sum(SoLuongCon) from Kho").Rows)
             {
-                soluong = Convert.ToInt32(i[0]);
+                if(i[0].ToString() != "")
+                {
+                    soluong = Convert.ToInt32(i[0]);
+                }
             }
             return soluong;
         }

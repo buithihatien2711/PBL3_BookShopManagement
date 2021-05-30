@@ -19,19 +19,6 @@ namespace PBL3_BookShopManagement.GUI.UserControls
             InitializeComponent();
             SetGUI();
             ShowBaoCaoTH(dtpFrom.Value, dtpTo.Value);
-            //Show();
-            ////Tạo watermark cho txtIDBook
-            //txtIDHoaDon.ForeColor = Color.LightGray;
-            //txtIDHoaDon.Text = "Enter IDInvoice";
-            //txtIDHoaDon.Leave += new System.EventHandler(this.txtIDBook_Leave);
-            //txtIDHoaDon.Enter += new System.EventHandler(this.txtIDBook_Enter);
-
-            ////Tạo watermark cho txtIDStaff
-            //txtIDStaff.ForeColor = Color.LightGray;
-            //txtIDStaff.Text = "Enter IDStaff";
-            //txtIDStaff.Leave += new System.EventHandler(this.txtIDStaff_Leave);
-            //txtIDStaff.Enter += new System.EventHandler(this.txtIDStaff_Enter);
-
         }
 
         //Tạo watermark cho txtIDBook
